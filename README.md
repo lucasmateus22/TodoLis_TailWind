@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# 🚀 Login - Typescript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web frontend desenvolvida com **React + Vite**, utilizando **TypeScript**, **TailwindCSS** para estilização, e **shadcn/ui** para componentes UI acessíveis e personalizáveis.  
+Este projeto está em fase inicial de desenvolvimento (frontend), com planos para incluir **autenticação** e **integração com banco de dados** em versões futuras.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/) (base dos componentes do shadcn)
 
-## Expanding the ESLint configuration
+## 📁 Estrutura do Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+📦 nome-do-projeto
+├── public/              # Arquivos públicos
+├── src/
+│   ├── assets/          # Imagens e outros assets
+│   ├── components/      # Componentes reutilizáveis
+│   ├── pages/           # Páginas da aplicação
+│   ├── routes/          # Rotas da aplicação (se aplicável)
+│   ├── styles/          # Estilos globais (se necessário)
+│   ├── App.tsx          # Componente principal
+│   └── main.tsx         # Ponto de entrada do app
+├── tailwind.config.ts   # Configuração do Tailwind
+├── shadcn.config.ts     # Configuração do shadcn/ui
+├── tsconfig.json        # Configuração do TypeScript
+├── vite.config.ts       # Configuração do Vite
+└── package.json         # Dependências e scripts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Instalação e Uso
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Instale as dependências
+npm install
+
+# Rode o projeto em ambiente de desenvolvimento
+npm run dev
 ```
+
+## 🧱 Componentes UI com ShadCN
+
+Os componentes são gerenciados via CLI:
+
+```bash
+# Exemplo de adição de um componente novo
+npx shadcn-ui@latest add button
+```
+
+## 📌 Planejamento Futuro
+
+- [ ] Integração com sistema de autenticação (provavelmente JWT + OAuth)
+- [ ] Integração com banco de dados (MongoDB, PostgreSQL ou outro)
+- [ ] Criação de back-end próprio (Node/Express, NestJS ou similar)
+- [ ] Deploy (Vercel, Netlify ou outro serviço)
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](./LICENSE) para mais informações.
+
+---
+
+## ✨ Agradecimentos
+
+- [shadcn/ui](https://ui.shadcn.com/) pela UI elegante e acessível
+- [Vite](https://vitejs.dev/) pela performance incrível no desenvolvimento
+- A comunidade open source ❤️
