@@ -36,8 +36,8 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/lucasmateus22/page_login_tailWind.git
+cd page_login_tailWind
 
 # Instale as dependências
 npm install
