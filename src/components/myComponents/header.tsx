@@ -14,8 +14,7 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
-import { Share2 } from "lucide-react"
-import { Button } from "../ui/button"
+import { Link } from "lucide-react"
 
 export default function Header() {
     return (
@@ -26,7 +25,7 @@ export default function Header() {
                         <Menubar className="h-10">
                             <MenubarMenu>
                                 <MenubarTrigger className="!bg-teal-800 text-white text-sm font-medium px-3 py-1">
-                                    <Share2 />
+                                    <Link />
                                 </MenubarTrigger>
                                 <MenubarContent>
                                     <MenubarItem>Dashboard</MenubarItem>
