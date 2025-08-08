@@ -10,7 +10,7 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [shadcn/ui](https://ui.shadcn.com/)
-- [Radix UI](https://www.radix-ui.com/) (base dos componentes do shadcn)
+- [Radix UI](https://www.radix-ui.com/)
 
 ## 📁 Estrutura do Projeto
 
@@ -20,13 +20,13 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 ├── src/
 │   ├── assets/          # Imagens e outros assets
 │   ├── components/      # Componentes reutilizáveis
+│   ├── features/        # Funcionalidades da aplicação
+│   ├── hooks/           # Funcionalidades complexas
 │   ├── pages/           # Páginas da aplicação
-│   ├── routes/          # Rotas da aplicação (se aplicável)
-│   ├── styles/          # Estilos globais (se necessário)
+│   ├── routes/          # Rotas da aplicação
+│   ├── index.css        # Estilo global
 │   ├── App.tsx          # Componente principal
 │   └── main.tsx         # Ponto de entrada do app
-├── tailwind.config.ts   # Configuração do Tailwind
-├── shadcn.config.ts     # Configuração do shadcn/ui
 ├── tsconfig.json        # Configuração do TypeScript
 ├── vite.config.ts       # Configuração do Vite
 └── package.json         # Dependências e scripts
