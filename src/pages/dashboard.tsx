@@ -15,14 +15,14 @@ export default function Dashboard() {
                         className="min-h-[calc(100vh-10rem)]" // ajusta para descontar header/footer
                     >
                         {/* Painel da Sidebar */}
-                        <ResizablePanel defaultSize={20} minSize={15} maxSize={30}>
+                        <ResizablePanel defaultSize={15} minSize={15} maxSize={15}>
                             <AppSidebar />
                         </ResizablePanel>
 
                         <ResizableHandle className="bg-gray" />
 
                         {/* Painel do conteúdo */}
-                        <ResizablePanel defaultSize={80} minSize={60}>
+                        <ResizablePanel defaultSize={85} minSize={60}>
                             <SectionDashboard />
                         </ResizablePanel>
                     </ResizablePanelGroup>
