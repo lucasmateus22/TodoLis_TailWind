@@ -11,20 +11,20 @@ import ItemDashboard from "./itemDashboard"
 export default function SectionDashboard() {
     return (
         <>
-            <div className="flex flex-col items-center justify-center rounded-md !h-195 bg-white w-full">
-                <ItemDashboard />
+            <div className="flex flex-col items-start justify-start rounded-md !h-195 bg-white w-full">
+
                 <Sheet>
-                    <SheetTrigger>Open</SheetTrigger>
+                    <SheetTrigger className="text-white !bg-teal-800 mt-5 ml-5">Open</SheetTrigger>
                     <SheetContent>
                         <SheetHeader>
-                            <SheetTitle>Are you absolutely sure?</SheetTitle>
+                            <SheetTitle>About</SheetTitle>
                             <SheetDescription>
-                                This action cannot be undone. This will permanently delete your account
-                                and remove your data from our servers.
+
                             </SheetDescription>
                         </SheetHeader>
                     </SheetContent>
                 </Sheet>
+                <ItemDashboard />
             </div>
         </>
     )
