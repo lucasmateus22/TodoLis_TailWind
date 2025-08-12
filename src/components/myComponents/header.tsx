@@ -19,7 +19,6 @@ import { Link } from "lucide-react"
 export default function Header() {
     return (
         <header className="absolute top-0 left-0 flex justify-end w-full bg-white shadow-md px-4 py-2 z-10">
-
             <HoverCard>
                 <HoverCardTrigger asChild>
                         <Menubar className="h-10">
@@ -42,12 +41,10 @@ export default function Header() {
                             </MenubarMenu>
                         </Menubar>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80">
+                <HoverCardContent className="absolute w-40 h-13 right-10 -bottom-1 flex items-center justify-center">
                     <p className="text-black">My social media</p>
                 </HoverCardContent>
             </HoverCard>
-
-
         </header>
     )
 }
