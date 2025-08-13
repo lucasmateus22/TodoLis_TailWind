@@ -28,12 +28,12 @@ export default function Header() {
                                 </MenubarTrigger>
                                 <MenubarContent>
                                     <MenubarItem>Dashboard</MenubarItem>
-                                    <MenubarItem>GitHub</MenubarItem>
+                                    <MenubarItem><a href="https://github.com/lucasmateus22">GitHub</a></MenubarItem>
                                     <MenubarSeparator />
                                     <MenubarSub>
                                         <MenubarSubTrigger>Share</MenubarSubTrigger>
                                         <MenubarSubContent>
-                                            <MenubarItem>Linkedin</MenubarItem>
+                                            <MenubarItem><a href="https://www.linkedin.com/in/lucas-mateus-a00485242/">Linkedin</a></MenubarItem>
                                             <MenubarItem>Vercel</MenubarItem>
                                         </MenubarSubContent>
                                     </MenubarSub>

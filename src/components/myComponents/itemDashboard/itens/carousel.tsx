@@ -8,11 +8,15 @@ import {
 
 export default function CarouselDash() {
     return (
-        <Carousel className="w-[100%] h-[90%] bg-red-500 rounded-xl p-4">
+        <Carousel className="w-[100%] h-[90%] bg-teal-600 rounded-xl p-4">
             <CarouselContent>
                 <CarouselItem>
                     <h3>One</h3>
-                    <img src="" alt="" />
+                    <img
+                        src=""
+                        alt="Placeholder"
+                        className="rounded-lg"
+                    />
                 </CarouselItem>
                 <CarouselItem>
                     <h3>Two</h3>

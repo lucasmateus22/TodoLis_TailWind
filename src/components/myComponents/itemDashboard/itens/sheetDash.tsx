@@ -10,8 +10,8 @@ import {
 export default function sheetDash() {
     return (
         <Sheet>
-            <SheetTrigger className="bg-teal-800 text-white px-4 py-2 rounded-md">
-                Open
+            <SheetTrigger className="!bg-teal-800 text-white px-4 py-2 rounded-md m-2">
+                About
             </SheetTrigger>
             <SheetContent className="w-full max-w-md">
                 <SheetHeader>
