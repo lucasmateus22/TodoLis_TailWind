@@ -1,4 +1,6 @@
-# 🚀 Nome do Projeto
+
+# 🚀 Login - Typescript
+
 
 Uma aplicação web frontend desenvolvida com **React + Vite**, utilizando **TypeScript**, **TailwindCSS** para estilização, e **shadcn/ui** para componentes UI acessíveis e personalizáveis.  
 Este projeto está em fase inicial de desenvolvimento (frontend), com planos para incluir **autenticação** e **integração com banco de dados** em versões futuras.
@@ -10,7 +12,9 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [shadcn/ui](https://ui.shadcn.com/)
-- [Radix UI](https://www.radix-ui.com/) (base dos componentes do shadcn)
+
+- [Radix UI](https://www.radix-ui.com/)
+
 
 ## 📁 Estrutura do Projeto
 
@@ -20,13 +24,13 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 ├── src/
 │   ├── assets/          # Imagens e outros assets
 │   ├── components/      # Componentes reutilizáveis
+│   ├── features/        # Funcionalidades da aplicação
+│   ├── hooks/           # Funcionalidades complexas
 │   ├── pages/           # Páginas da aplicação
-│   ├── routes/          # Rotas da aplicação (se aplicável)
-│   ├── styles/          # Estilos globais (se necessário)
+│   ├── routes/          # Rotas da aplicação
+│   ├── index.css        # Estilo global
 │   ├── App.tsx          # Componente principal
 │   └── main.tsx         # Ponto de entrada do app
-├── tailwind.config.ts   # Configuração do Tailwind
-├── shadcn.config.ts     # Configuração do shadcn/ui
 ├── tsconfig.json        # Configuração do TypeScript
 ├── vite.config.ts       # Configuração do Vite
 └── package.json         # Dependências e scripts
@@ -36,8 +40,9 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+
+git clone https://github.com/lucasmateus22/page_login_tailWind.git
+cd page_login_tailWind
 
 # Instale as dependências
 npm install
@@ -72,4 +77,3 @@ Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](./
 
 - [shadcn/ui](https://ui.shadcn.com/) pela UI elegante e acessível
 - [Vite](https://vitejs.dev/) pela performance incrível no desenvolvimento
-- A comunidade open source ❤️
