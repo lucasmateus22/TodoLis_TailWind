@@ -1,4 +1,6 @@
+
 # 🚀 Login - Typescript
+
 
 Uma aplicação web frontend desenvolvida com **React + Vite**, utilizando **TypeScript**, **TailwindCSS** para estilização, e **shadcn/ui** para componentes UI acessíveis e personalizáveis.  
 Este projeto está em fase inicial de desenvolvimento (frontend), com planos para incluir **autenticação** e **integração com banco de dados** em versões futuras.
@@ -10,7 +12,9 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [shadcn/ui](https://ui.shadcn.com/)
+
 - [Radix UI](https://www.radix-ui.com/)
+
 
 ## 📁 Estrutura do Projeto
 
@@ -36,6 +40,7 @@ Este projeto está em fase inicial de desenvolvimento (frontend), com planos par
 
 ```bash
 # Clone o repositório
+
 git clone https://github.com/lucasmateus22/page_login_tailWind.git
 cd page_login_tailWind
 
@@ -72,4 +77,3 @@ Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](./
 
 - [shadcn/ui](https://ui.shadcn.com/) pela UI elegante e acessível
 - [Vite](https://vitejs.dev/) pela performance incrível no desenvolvimento
-- A comunidade open source ❤️
