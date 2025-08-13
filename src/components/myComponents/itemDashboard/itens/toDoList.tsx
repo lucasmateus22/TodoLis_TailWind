@@ -93,9 +93,9 @@ export default function ToList() {
                 </ul>
             </section>
             <section className="render-itens-side bg-black w-[100%] h-[55%] rounded-xl p-4" id="dash-itens-2">
-                <ul className="text-white">
+                <ul className="text-white  flex flex-row flex-wrap gap-2">
                     {section2Tasks.map((task) => (
-                        <li className="flex flex-col w-[12%] h-[25%] !bg-red-500" key={task.id}>
+                        <li className="flex flex-row w-[12%] h-[35%] !bg-red-500" key={task.id}>
                             <img src="" alt="img" />
                             {task.text},
                         </li>
