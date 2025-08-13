@@ -22,11 +22,18 @@ export default function LoginBox() {
                 <Input placeholder="Password" type="password" className="mt-2" />
                 <div className="flex justify-around items-center mt-4 p-2 gap-2">
                     <CardAction>
-                        <Button variant="teal" size="lg" className="hover:bg-teal-600 text-white w-full">Login</Button>
+                        <Button variant="default" size="lg" className="hover:bg-teal-600 text-white w-full">
+                            <a href="/dashboard" className="!text-white">Login</a>
+                        </Button>
                     </CardAction>
                 </div>
                 <CardFooter className="flex justify-center">
-                    <small><span className="text-sm text-muted-foreground">Don't have an account? <br /> <a href="">Enter without account</a></span></small>
+                    <small>
+                        <span className="text-sm text-muted-foreground">Don't have an account?
+                            <br />
+                            <a href="/dashboard">Enter without account</a>
+                        </span>
+                    </small>
                 </CardFooter>
             </CardContent>
         </Card>
