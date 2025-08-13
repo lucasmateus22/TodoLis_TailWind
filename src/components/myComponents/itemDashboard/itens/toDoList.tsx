@@ -16,7 +16,7 @@ import type { Task } from "@/types";
 export default function ToList() {
     const [taskText, setTaskText] = useState("");
     const [tasks, setTasks] = useState<Task[]>([]);
-    const section1Limit = 5;
+    const section1Limit = 28;
 
     // Função para adicionar uma nova tarefa
     const handleAddTask = () => {
@@ -83,18 +83,24 @@ export default function ToList() {
                 </CardFooter>
             </Card>
             <section className="render-itens-side bg-black w-[74%] h-[41%] rounded-xl p-4" id="dash-itens-1">
-                <ul className="text-white">
-                        {section1Tasks.map((task) => (
-                            <li key={task.id}>{task.text}</li>
-                        ))}
-                    </ul>
+                <ul className="text-white flex flex-row flex-wrap gap-2">
+                    {section1Tasks.map((task) => (
+                        <li className="flex flex-col w-[12%] h-[25%] !bg-red-500" key={task.id}>
+                            <img src="" alt="img" />
+                            {task.text},
+                        </li>
+                    ))}
+                </ul>
             </section>
             <section className="render-itens-side bg-black w-[100%] h-[55%] rounded-xl p-4" id="dash-itens-2">
                 <ul className="text-white">
-                        {section2Tasks.map((task) => (
-                            <li key={task.id}>{task.text}</li>
-                        ))}
-                    </ul>
+                    {section2Tasks.map((task) => (
+                        <li className="flex flex-col w-[12%] h-[25%] !bg-red-500" key={task.id}>
+                            <img src="" alt="img" />
+                            {task.text},
+                        </li>
+                    ))}
+                </ul>
             </section>
         </div>
     )
