@@ -12,11 +12,13 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useState } from 'react';
 import type { Task } from "@/types";
+import { Separator } from "@/components/ui/separator";
 
 export default function ToList() {
     const [taskText, setTaskText] = useState("");
     const [tasks, setTasks] = useState<Task[]>([]);
     const section1Limit = 28;
+    const section2Limit = 35;
 
     // Função para adicionar uma nova tarefa
     const handleAddTask = () => {
@@ -45,7 +47,7 @@ export default function ToList() {
 
     // Dividindo as tarefas para as duas seções
     const section1Tasks = tasks.slice(0, section1Limit);
-    const section2Tasks = tasks.slice(section1Limit);
+    const section2Tasks = tasks.slice(section1Limit, section2Limit);
 
     return (
         <div className="w-full h-full flex flex-row items-start justify-start gap-2 flex-wrap">
@@ -82,20 +84,21 @@ export default function ToList() {
                     </Button>
                 </CardFooter>
             </Card>
-            <section className="render-itens-side bg-black w-[74%] h-[41%] rounded-xl p-4" id="dash-itens-1">
+            <section className="render-itens-side w-[74%] h-[41%] rounded-xl p-4" id="dash-itens-1">
                 <ul className="text-white flex flex-row flex-wrap gap-2">
                     {section1Tasks.map((task) => (
-                        <li className="flex flex-col w-[12%] h-[25%] !bg-red-500" key={task.id}>
+                        <li className="flex flex-row w-[12%] h-[25%] !bg-teal-950 rounded-xl p-3" key={task.id}>
                             <img src="" alt="img" />
                             {task.text},
                         </li>
                     ))}
                 </ul>
             </section>
-            <section className="render-itens-side bg-black w-[100%] h-[55%] rounded-xl p-4" id="dash-itens-2">
-                <ul className="text-white">
+            <Separator/>
+            <section className="render-itens-side w-[100%] h-[55%] rounded-xl p-4" id="dash-itens-2">
+                <ul className="text-white  flex flex-row flex-wrap gap-2">
                     {section2Tasks.map((task) => (
-                        <li className="flex flex-col w-[12%] h-[25%] !bg-red-500" key={task.id}>
+                        <li className="flex flex-row w-[12%] h-[35%] !bg-teal-950  rounded-xl p-3" key={task.id}>
                             <img src="" alt="img" />
                             {task.text},
                         </li>
