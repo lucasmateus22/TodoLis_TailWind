@@ -13,31 +13,38 @@ import { Button } from "@/components/ui/button"
 import { useState } from 'react';
 import type { Task } from "@/types";
 import { Separator } from "@/components/ui/separator";
+import { Circle, CircleCheckBig } from "lucide-react";
 
 export default function ToList() {
     const [taskText, setTaskText] = useState("");
     const [tasks, setTasks] = useState<Task[]>([]);
+    // Removido: const [conclued, setConclued] = useState(false);
+    // Removido: const changerStateTask = () => { ... }
     const section1Limit = 28;
     const section2Limit = 35;
 
     // Função para adicionar uma nova tarefa
     const handleAddTask = () => {
-        // Verifica se o texto não está vazio
         if (taskText.trim() === "") {
             console.error("Task text cannot be empty");
             return;
         }
-
-        // Cria a nova tarefa, garantindo que todas as propriedades da interface Task estejam presentes
         const newTask: Task = {
             id: Date.now().toString(),
             text: taskText,
+            completed: false,
         };
-
-        // Adiciona a nova tarefa ao array de tasks
         setTasks((prevTasks) => [...prevTasks, newTask]);
-        // Limpa o input após adicionar a tarefa
         setTaskText("");
+    };
+
+    // Nova função para alternar o estado 'completed' de uma tarefa específica
+    const handleToggleTask = (id: string) => {
+        setTasks(prevTasks =>
+            prevTasks.map(task =>
+                task.id === id ? { ...task, completed: !task.completed } : task
+            )
+        );
     };
 
     // Função para deletar todas as tarefas
@@ -57,8 +64,7 @@ export default function ToList() {
                     <CardDescription>
                         Add your tasks here and manage them efficiently.
                     </CardDescription>
-                    <CardAction>
-                    </CardAction>
+                    <CardAction />
                 </CardHeader>
                 <CardContent>
                     <div className="flex flex-col gap-6">
@@ -66,11 +72,11 @@ export default function ToList() {
                             <Label htmlFor="task">Task</Label>
                             <Input
                                 id="task"
-                                type="task"
+                                type="text"
                                 placeholder="item"
                                 required
-                                value={taskText} // Conectando o valor do input ao estado
-                                onChange={(e) => setTaskText(e.target.value)} // Atualizando o estado a cada mudança
+                                value={taskText}
+                                onChange={(e) => setTaskText(e.target.value)}
                             />
                         </div>
                     </div>
@@ -84,27 +90,31 @@ export default function ToList() {
                     </Button>
                 </CardFooter>
             </Card>
-            <section className="render-itens-side w-[74%] h-[41%] rounded-xl p-4" id="dash-itens-1">
+
+            <section className="render-itens-side w-[74%] h-[41%] rounded-xl p-4">
                 <ul className="text-white flex flex-row flex-wrap gap-2">
                     {section1Tasks.map((task) => (
-                        <li className="flex flex-row w-[12%] h-[25%] !bg-teal-950 rounded-xl p-3" key={task.id}>
-                            <img src="" alt="img" />
-                            {task.text},
+                        // O onClick agora chama a função com o id da tarefa
+                        <li className="flex flex-row align-center justify-around w-[12%] h-[25%] !bg-teal-950 rounded-xl p-3" key={task.id} onClick={() => handleToggleTask(task.id)}>
+                            {/* O ícone é renderizado com base no estado individual da tarefa */}
+                            {task.completed ? <CircleCheckBig /> : <Circle />}
+                            {task.text}
                         </li>
                     ))}
                 </ul>
             </section>
-            <Separator/>
+            <Separator />
             <section className="render-itens-side w-[100%] h-[55%] rounded-xl p-4" id="dash-itens-2">
-                <ul className="text-white  flex flex-row flex-wrap gap-2">
+                <ul className="text-white flex flex-row flex-wrap gap-2">
                     {section2Tasks.map((task) => (
-                        <li className="flex flex-row w-[12%] h-[35%] !bg-teal-950  rounded-xl p-3" key={task.id}>
+                        // A lógica de click também é aplicada aqui
+                        <li className="flex flex-row align-center justify-around w-[12%] h-[25%] !bg-teal-950 rounded-xl p-3" key={task.id} onClick={() => handleToggleTask(task.id)}>
                             <img src="" alt="img" />
-                            {task.text},
+                            {task.text}
                         </li>
                     ))}
                 </ul>
             </section>
         </div>
-    )
+    );
 }
