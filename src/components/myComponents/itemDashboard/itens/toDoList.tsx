@@ -7,49 +7,34 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+
 import { useState } from 'react';
-import type { Task } from "@/types";
-import TaskItem from "./item"; 
+import TaskItem from "./item";
+import { CrudApi } from "@/features/hooks/crudApi"
 
 export default function ToList() {
+
+    const { tasks, loading, addTask, handleDeleteTask, handleToggleTask, handleDeleteAllTasks } = CrudApi()
     const [taskText, setTaskText] = useState("");
-    const [tasks, setTasks] = useState<Task[]>([]);
     const section1Limit = 50;
 
-    const handleAddTask = () => {
-        if (taskText.trim() === "") {
-            console.error("Task text cannot be empty");
-            return;
-        }
-        const newTask: Task = {
-            id: Date.now().toString(),
-            text: taskText,
-            completed: false,
-        };
-        setTasks((prevTasks) => [...prevTasks, newTask]);
-        setTaskText("");
-    };
-
-    const handleDeleteAllTasks = () => {
-        setTasks([]);
-    };
-
-        const handleToggleTask = (id: string) => {
-        setTasks(prevTasks =>
-            prevTasks.map(task =>
-                task.id === id ? { ...task, completed: !task.completed } : task
-            )
-        );
-    };
-
-        const handleDeleteTask = (id: string) => {
-        setTasks (prevTasks => prevTasks.filter(task => task.id !== id))
-    }
-
     const section1Tasks = tasks.slice(0, section1Limit);
+
+      const handleAddTask = () => {
+        addTask(taskText); // Passa taskText como um argumento
+        setTaskText(""); // Limpa o campo de entrada aqui, no componente
+    };
 
     return (
         <div className="w-full h-full flex flex-row items-start justify-start gap-2">
@@ -67,7 +52,7 @@ export default function ToList() {
                             <Label htmlFor="task">Task</Label>
                             <Input
                                 id="task"
-                                type="text" 
+                                type="text"
                                 placeholder="item"
                                 required
                                 value={taskText}
@@ -80,23 +65,36 @@ export default function ToList() {
                     <Button onClick={handleDeleteAllTasks} className="w-35 !bg-zinc-600" variant="destructive">
                         Delete All Tasks
                     </Button>
-                    {/* Botão para adicionar a tarefa */}
                     <Button onClick={handleAddTask} className="w-35 text-white !bg-teal-950 hover:" variant="outline">
                         Add Task
                     </Button>
                 </CardFooter>
             </Card>
             <section className="w-[74%] h-[90%] rounded-xl p-4 overflow-y-auto">
-                <ul className="text-white flex flex-row flex-wrap gap-2">
-                    {section1Tasks.map((task) => (
-                        <TaskItem
-                            key={task.id}
-                            task={task}
-                            handleToggleTask={handleToggleTask}
-                            handleDeleteTask={handleDeleteTask}
-                        />
-                    ))}
-                </ul>
+                {loading ? (
+                    <p>Carregando tarefas...</p>
+                ) : (
+                    <Table className="w-[100%] bg-zinc-800">
+                        <TableCaption>A list of your recent invoices.</TableCaption>
+                        <TableHeader className="bg-gray-800">
+                            <TableRow>
+                                <TableHead className="w-[15%] text-white">Completed</TableHead>
+                                <TableHead className="w-[70%] text-white">Task name</TableHead>
+                                <TableHead className="w-[15%] text-white">Delete</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody className="text-white">
+                            {section1Tasks.map((task) => (
+                                <TaskItem
+                                    key={task.id}
+                                    task={task}
+                                    handleToggleTask={handleToggleTask}
+                                    handleDeleteTask={handleDeleteTask}
+                                />
+                            ))}
+                        </TableBody>
+                    </Table>
+                )}
             </section>
         </div>
     );
