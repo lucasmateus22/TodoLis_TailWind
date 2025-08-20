@@ -18,9 +18,7 @@ export default function Dashboard() {
                         <ResizablePanel defaultSize={15} minSize={15} maxSize={15}>
                             <AppSidebar />
                         </ResizablePanel>
-
                         <ResizableHandle className="bg-gray" />
-
                         {/* Painel do conteúdo */}
                         <ResizablePanel defaultSize={85} minSize={60}>
                             <SectionDashboard />

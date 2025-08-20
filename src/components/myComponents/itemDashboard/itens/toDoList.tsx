@@ -7,58 +7,38 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+
 import { useState } from 'react';
-import type { Task } from "@/types";
-import { Separator } from "@/components/ui/separator";
-import { Circle, CircleCheckBig } from "lucide-react";
+import TaskItem from "./item";
+import { CrudApi } from "@/features/hooks/crudApi"
 
 export default function ToList() {
+
+    const { tasks, loading, addTask, handleDeleteTask, handleToggleTask, handleDeleteAllTasks } = CrudApi()
     const [taskText, setTaskText] = useState("");
-    const [tasks, setTasks] = useState<Task[]>([]);
-    // Removido: const [conclued, setConclued] = useState(false);
-    // Removido: const changerStateTask = () => { ... }
-    const section1Limit = 28;
-    const section2Limit = 35;
+    const section1Limit = 50;
 
-    // Função para adicionar uma nova tarefa
-    const handleAddTask = () => {
-        if (taskText.trim() === "") {
-            console.error("Task text cannot be empty");
-            return;
-        }
-        const newTask: Task = {
-            id: Date.now().toString(),
-            text: taskText,
-            completed: false,
-        };
-        setTasks((prevTasks) => [...prevTasks, newTask]);
-        setTaskText("");
-    };
-
-    // Nova função para alternar o estado 'completed' de uma tarefa específica
-    const handleToggleTask = (id: string) => {
-        setTasks(prevTasks =>
-            prevTasks.map(task =>
-                task.id === id ? { ...task, completed: !task.completed } : task
-            )
-        );
-    };
-
-    // Função para deletar todas as tarefas
-    const handleDeleteAllTasks = () => {
-        setTasks([]);
-    };
-
-    // Dividindo as tarefas para as duas seções
     const section1Tasks = tasks.slice(0, section1Limit);
-    const section2Tasks = tasks.slice(section1Limit, section2Limit);
+
+      const handleAddTask = () => {
+        addTask(taskText); // Passa taskText como um argumento
+        setTaskText(""); // Limpa o campo de entrada aqui, no componente
+    };
 
     return (
-        <div className="w-full h-full flex flex-row items-start justify-start gap-2 flex-wrap">
-            <Card className="w-[25%] max-w-sm h-[41%]">
+        <div className="w-full h-full flex flex-row items-start justify-start gap-2">
+            <Card className="w-[25%] max-w-sm min-h-[90%] min-w-[200px]">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -81,7 +61,7 @@ export default function ToList() {
                         </div>
                     </div>
                 </CardContent>
-                <CardFooter className="justify-around flex-row gap-2">
+                <CardFooter className="justify-around flex-row gap-2 flex-wrap">
                     <Button onClick={handleDeleteAllTasks} className="w-35 !bg-zinc-600" variant="destructive">
                         Delete All Tasks
                     </Button>
@@ -90,30 +70,31 @@ export default function ToList() {
                     </Button>
                 </CardFooter>
             </Card>
-
-            <section className="render-itens-side w-[74%] h-[41%] rounded-xl p-4">
-                <ul className="text-white flex flex-row flex-wrap gap-2">
-                    {section1Tasks.map((task) => (
-                        // O onClick agora chama a função com o id da tarefa
-                        <li className="flex flex-row align-center justify-around w-[12%] h-[25%] !bg-teal-950 rounded-xl p-3" key={task.id} onClick={() => handleToggleTask(task.id)}>
-                            {/* O ícone é renderizado com base no estado individual da tarefa */}
-                            {task.completed ? <CircleCheckBig /> : <Circle />}
-                            {task.text}
-                        </li>
-                    ))}
-                </ul>
-            </section>
-            <Separator />
-            <section className="render-itens-side w-[100%] h-[55%] rounded-xl p-4" id="dash-itens-2">
-                <ul className="text-white flex flex-row flex-wrap gap-2">
-                    {section2Tasks.map((task) => (
-                        // A lógica de click também é aplicada aqui
-                        <li className="flex flex-row align-center justify-around w-[12%] h-[25%] !bg-teal-950 rounded-xl p-3" key={task.id} onClick={() => handleToggleTask(task.id)}>
-                            <img src="" alt="img" />
-                            {task.text}
-                        </li>
-                    ))}
-                </ul>
+            <section className="w-[74%] h-[90%] rounded-xl p-4 overflow-y-auto">
+                {loading ? (
+                    <p>Carregando tarefas...</p>
+                ) : (
+                    <Table className="w-[100%] bg-zinc-800">
+                        <TableCaption>A list of your recent invoices.</TableCaption>
+                        <TableHeader className="bg-gray-800">
+                            <TableRow>
+                                <TableHead className="w-[15%] text-white">Completed</TableHead>
+                                <TableHead className="w-[70%] text-white">Task name</TableHead>
+                                <TableHead className="w-[15%] text-white">Delete</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody className="text-white">
+                            {section1Tasks.map((task) => (
+                                <TaskItem
+                                    key={task.id}
+                                    task={task}
+                                    handleToggleTask={handleToggleTask}
+                                    handleDeleteTask={handleDeleteTask}
+                                />
+                            ))}
+                        </TableBody>
+                    </Table>
+                )}
             </section>
         </div>
     );
