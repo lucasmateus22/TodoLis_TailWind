@@ -67,10 +67,6 @@ npx shadcn-ui@latest add button
 - [ ] Criação de back-end próprio (Node/Express, NestJS ou similar)
 - [ ] Deploy (Vercel, Netlify ou outro serviço)
 
-## 📄 Licença
-
-Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](./LICENSE) para mais informações.
-
 ---
 
 ## ✨ Agradecimentos
