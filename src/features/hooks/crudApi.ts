@@ -63,17 +63,22 @@ export const CrudApi = () => {
 
     const handleDeleteAllTasks = async () => {
         try {
-            const response = await fetch (API_URL, {
+            const deletionPromises = tasks.map(task => fetch(`${API_URL}/${task.id}`, {
                 method: 'DELETE',
-            });
-            if (response.ok) {
-                fetchTasks();
+            })
+            );
+            const responses = await Promise.all(deletionPromises);
+            const allReferencesDelete = responses.every(response => response.ok);
+
+            if (allReferencesDelete) {
+                setTasks([]);
+            } else {
+                console.error("Error deleting all tasks:")
             }
         } catch (error) {
-            console.error("Error deleting all tasks:", error)
-        }
-        console.error("Delete All is not yet implemented in CrudApi hook");
-    };
+            console.error("Error deleting all tasks:", error);
+        };
+    }
 
     const handleToggleTask = async (id: string) => {
         const taskToUpdate = tasks.find(task => task.id === id);
@@ -81,7 +86,7 @@ export const CrudApi = () => {
         try {
             const response = await fetch(`${API_URL}/${id}`,
                 {
-                    method: 'PUT',
+                    method: 'PATCH',
                     headers: {
                         'Content-type': 'application/json',
                     },

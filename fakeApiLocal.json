@@ -1,18 +1,8 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "text": "Aprender React",
-      "completed": true
-    },
-    {
-      "id": "2",
-      "text": "Configurar a API",
-      "completed": false
-    },
-    {
-      "id": "1755710538315",
-      "text": "fsdfsd",
+      "id": "1755712927379",
+      "text": "dasdasd",
       "completed": false
     }
   ]
