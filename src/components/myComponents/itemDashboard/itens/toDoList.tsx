@@ -31,7 +31,7 @@ export default function ToList() {
 
     const section1Tasks = tasks.slice(0, section1Limit);
 
-      const handleAddTask = () => {
+    const handleAddTask = () => {
         addTask(taskText); // Passa taskText como um argumento
         setTaskText(""); // Limpa o campo de entrada aqui, no componente
     };
@@ -57,17 +57,19 @@ export default function ToList() {
                                 required
                                 value={taskText}
                                 onChange={(e) => setTaskText(e.target.value)}
+                                maxLength={50}
                             />
                         </div>
                     </div>
                 </CardContent>
-                <CardFooter className="justify-around flex-row gap-2 flex-wrap">
-                    <Button onClick={handleDeleteAllTasks} className="w-35 !bg-zinc-600" variant="destructive">
-                        Delete All Tasks
-                    </Button>
+                <CardFooter className="justify-around flex-col gap-2 flex-wrap">
                     <Button onClick={handleAddTask} className="w-35 text-white !bg-teal-950 hover:" variant="outline">
                         Add Task
                     </Button>
+                    <Button onClick={handleDeleteAllTasks} className="w-35 !bg-zinc-600" variant="destructive">
+                        Delete All Tasks
+                    </Button>
+
                 </CardFooter>
             </Card>
             <section className="w-[74%] h-[90%] rounded-xl p-4 overflow-y-auto">

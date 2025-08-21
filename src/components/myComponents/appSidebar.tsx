@@ -17,7 +17,7 @@ import { Button } from "../ui/button"
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider className="!w-[250px] min-w-[200px] rounded-r-lg text-teal-800 static h-195 bg-green-500">
+    <SidebarProvider className="!w-[250px] min-w-[200px] rounded-r-lg text-teal-800 static h-195">
       <Sidebar className="!w-[250px] min-w-[200px] rounded-r-lg text-teal-800 static h-195">
         <SidebarHeader>
           <Input placeholder="Search" type="text" className="mt-2" />
