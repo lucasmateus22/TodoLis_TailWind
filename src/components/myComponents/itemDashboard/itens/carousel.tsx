@@ -8,7 +8,7 @@ import {
 
 export default function CarouselDash() {
     return (
-        <Carousel className="w-[100%] h-[90%] bg-teal-600 rounded-xl p-4">
+        <Carousel className="w-[75%] h-[100%] bg-teal-600 rounded-xl p-4">
             <CarouselContent>
                 <CarouselItem>
                     <h3>One</h3>

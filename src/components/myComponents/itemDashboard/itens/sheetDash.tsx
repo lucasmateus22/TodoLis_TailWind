@@ -6,12 +6,13 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
 
 export default function sheetDash() {
     return (
         <Sheet>
             <SheetTrigger className="!bg-teal-800 text-white px-4 py-2 rounded-md m-2">
-                About
+                <Menu/>
             </SheetTrigger>
             <SheetContent className="w-full max-w-md">
                 <SheetHeader>
