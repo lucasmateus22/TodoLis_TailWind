@@ -20,7 +20,7 @@ import SheetDash from "./itemDashboard/itens/sheetDash"
 
 export default function Header() {
     return (
-        <header className="absolute top-0 left-0 flex justify-between w-full bg-white shadow-md px-4 py-2 z-10">
+        <header className="flex justify-between w-full h-[9h] shadow-md px-4 py-2 bg-teal-900">
             <HoverCard>
                 <div className="w-[20%] bg-teal-700 text-white flex items-center justify-between px-4 rounded-md">
                     <SheetDash />

@@ -15,8 +15,8 @@ import { Home, LogOut } from "lucide-react"
 
 export default function AppSidebar() {
   return (
-    <SidebarProvider className=" flex justify-center min-w-[200px] rounded-lg text-teal-500 static h-195">
-      <Sidebar className="flex justify-center !w-[80px] rounded-lg text-teal-800 static h-195">
+    <SidebarProvider className="flex justify-center min-w-[200px] rounded-lg text-teal-500 static h-195 !bg-transparent">
+      <Sidebar className="flex justify-center !w-[80px] rounded-lg text-teal-800 static h-155">
         <SidebarHeader>
           <SidebarMenuButton asChild>
             <SidebarMenuItem className="flex items-center justify-center p-6">

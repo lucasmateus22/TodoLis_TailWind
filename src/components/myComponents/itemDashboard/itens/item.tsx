@@ -23,7 +23,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
         <TableRow
             className={`p-3 
             cursor-pointer 
-            ${task.completed ? '!bg-teal-950' : 'bg-zinc-600'}`}
+            ${task.completed ? '!bg-teal-950' : 'bg-zinc-400'}`}
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
         >
@@ -42,7 +42,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
             </TableCell>
             <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%]'>
                 <div className="flex justify-center align-center rounded-full bg-red-500 w-[45%] p-1 hover:bg-red-600 transition-colors duration-200">
-                    <Trash2 />
+                    <Trash2 className="w-4" />
                 </div>
             </TableCell>
         </TableRow>

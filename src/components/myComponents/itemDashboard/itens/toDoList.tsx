@@ -38,7 +38,7 @@ export default function ToList() {
 
     return (
         <div className="w-full h-full flex flex-row items-start justify-start gap-2">
-            <Card className="w-[25%] max-w-sm min-h-[90%] min-w-[200px]">
+            <Card className="w-[25%] max-w-sm min-w-[200px]">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -76,9 +76,9 @@ export default function ToList() {
                 {loading ? (
                     <p>Carregando tarefas...</p>
                 ) : (
-                    <Table className="w-[100%] bg-zinc-800">
+                    <Table className="w-[100%] !bg-teal-900">
                         <TableCaption>A list of your recent invoices.</TableCaption>
-                        <TableHeader className="bg-gray-800">
+                        <TableHeader className="bg-teal-900">
                             <TableRow>
                                 <TableHead className="w-[15%] text-white">Completed</TableHead>
                                 <TableHead className="w-[70%] text-white">Task name</TableHead>
