@@ -12,6 +12,7 @@ import {
     TableBody,
     TableCaption,
     TableHead,
+    TableCell,
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
@@ -38,7 +39,7 @@ export default function ToList() {
 
     return (
         <div className="w-full h-full flex flex-row items-start justify-start gap-2">
-            <Card className="w-[25%] max-w-sm min-w-[200px]">
+            <Card className="w-[25%] max-w-sm min-w-[300px] mt-38">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -76,16 +77,21 @@ export default function ToList() {
                 {loading ? (
                     <p>Carregando tarefas...</p>
                 ) : (
-                    <Table className="w-[100%] !bg-teal-900">
+                    <Table className="w-[100%] min-h-[300px] !bg-teal-900">
                         <TableCaption>A list of your recent invoices.</TableCaption>
-                        <TableHeader className="bg-teal-900">
+                        <TableHeader className="bg-teal-900 !mb-4">
                             <TableRow>
                                 <TableHead className="w-[15%] text-white">Completed</TableHead>
                                 <TableHead className="w-[70%] text-white">Task name</TableHead>
                                 <TableHead className="w-[15%] text-white">Delete</TableHead>
                             </TableRow>
                         </TableHeader>
-                        <TableBody className="text-white">
+                        <TableBody className="text-white !bg-teal-900 max-h-[250px] w-[100%]">
+                            <TableRow className="!bg-white !h-[55px] !w-[250px]">
+                                <TableCell className="h-[50px]"></TableCell>
+                                <TableCell className="h-[50px]"></TableCell>
+                                <TableCell className="h-[50px]"></TableCell>
+                            </TableRow>
                             {section1Tasks.map((task) => (
                                 <TaskItem
                                     key={task.id}

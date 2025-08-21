@@ -21,7 +21,7 @@ interface TaskItemProps {
 const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDeleteTask }) => {
     return (
         <TableRow
-            className={`p-3 
+            className={`p-2 h-[40px]
             cursor-pointer 
             ${task.completed ? '!bg-teal-950' : 'bg-zinc-400'}`}
             key={task.id}
@@ -41,7 +41,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                 </HoverCard >
             </TableCell>
             <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%]'>
-                <div className="flex justify-center align-center rounded-full bg-red-500 w-[45%] p-1 hover:bg-red-600 transition-colors duration-200">
+                <div className="flex justify-center align-center rounded-full bg-red-500 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
                     <Trash2 className="w-4" />
                 </div>
             </TableCell>
