@@ -12,7 +12,8 @@ export default function ItemDashboard() {
             <TabsContent value="todolist" className="w-[100%] !h-[100%] mt-9">
                 <ToList />
             </TabsContent>
-            <TabsContent value="Carousel" className="">
+            <TabsContent value="Carousel" className="flex justify-around align-end">
+                <div>a</div>
                 <CarouselDash />
             </TabsContent>
         </Tabs>
