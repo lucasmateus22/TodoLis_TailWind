@@ -4,8 +4,8 @@ import CarouselDash from "./itens/carousel"
 
 export default function ItemDashboard() {
     return (
-        <Tabs defaultValue="account" className="w-[100%] h-[100vh] pl-16 rounded-lg">
-            <TabsList className=" relative top-[10vh] gap-2">
+        <Tabs defaultValue="todolist" className="w-[100%] h-[100vh] pl-16 rounded-lg">
+            <TabsList className=" relative left-[5%] top-[11%] gap-2">
                 <TabsTrigger value="todolist" className="text-white !bg-teal-950">To do list</TabsTrigger>
                 <TabsTrigger value="Carousel" className="text-white !bg-teal-950">Carousel</TabsTrigger>
             </TabsList>

@@ -39,7 +39,7 @@ export default function ToList() {
 
     return (
         <div className="w-full h-full flex flex-row items-start justify-start gap-2">
-            <Card className="w-[25%] max-w-sm min-w-[300px] mt-38">
+            <Card className="w-[25%] max-w-sm min-w-[300px] mt-28">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -54,7 +54,7 @@ export default function ToList() {
                             <Input
                                 id="task"
                                 type="text"
-                                placeholder="item"
+                                placeholder="Task"
                                 required
                                 value={taskText}
                                 onChange={(e) => setTaskText(e.target.value)}
@@ -70,23 +70,22 @@ export default function ToList() {
                     <Button onClick={handleDeleteAllTasks} className="w-35 !bg-zinc-600" variant="destructive">
                         Delete All Tasks
                     </Button>
-
                 </CardFooter>
             </Card>
-            <section className="w-[74%] h-[90%] rounded-xl p-4 overflow-y-auto">
+            <section className="w-[74%] h-[90%] max-h-[650px] rounded-[27px] overflow-y-auto">
                 {loading ? (
                     <p>Carregando tarefas...</p>
                 ) : (
-                    <Table className="w-[100%] min-h-[300px] !bg-teal-900">
+                    <Table className="w-[100%] min-h-[300px] h-[100%] !bg-teal-900">
                         <TableCaption>A list of your recent invoices.</TableCaption>
-                        <TableHeader className="bg-teal-900 !mb-4">
-                            <TableRow>
-                                <TableHead className="w-[15%] text-white">Completed</TableHead>
+                        <TableHeader className="!rounded-lg bg-teal-900">
+                            <TableRow className="!rounded-lg">
+                                <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
                                 <TableHead className="w-[70%] text-white">Task name</TableHead>
                                 <TableHead className="w-[15%] text-white">Delete</TableHead>
                             </TableRow>
                         </TableHeader>
-                        <TableBody className="text-white !bg-teal-900 max-h-[250px] w-[100%]">
+                        <TableBody className="text-white !bg-teal-900 max-h-[250px] w-[100%] ">
                             <TableRow className="!bg-white !h-[55px] !w-[250px]">
                                 <TableCell className="h-[50px]"></TableCell>
                                 <TableCell className="h-[50px]"></TableCell>

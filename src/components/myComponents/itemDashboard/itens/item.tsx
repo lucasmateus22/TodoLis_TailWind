@@ -27,7 +27,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
         >
-            <TableCell className="w-[15%]">
+            <TableCell className="w-[15%] pl-5">
                 {task.completed ? <CircleCheckBig /> : <Circle />}
             </TableCell>
             <TableCell className="w-[75%] gap-2 items-center">
