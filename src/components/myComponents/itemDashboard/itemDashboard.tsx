@@ -13,7 +13,6 @@ export default function ItemDashboard() {
                 <ToList />
             </TabsContent>
             <TabsContent value="Carousel" className="flex justify-around align-end">
-                <div>a</div>
                 <CarouselDash />
             </TabsContent>
         </Tabs>

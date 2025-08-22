@@ -11,8 +11,8 @@ import {
     Table,
     TableBody,
     TableCaption,
-    TableHead,
     TableCell,
+    TableHead,
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
@@ -21,6 +21,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 
 import { useState } from 'react';
+import type { Task } from "@/types";
 import TaskItem from "./item";
 import { CrudApi } from "@/features/hooks/crudApi"
 
@@ -33,8 +34,8 @@ export default function ToList() {
     const section1Tasks = tasks.slice(0, section1Limit);
 
     const handleAddTask = () => {
-        addTask(taskText); // Passa taskText como um argumento
-        setTaskText(""); // Limpa o campo de entrada aqui, no componente
+        addTask(taskText);
+        setTaskText("");
     };
 
     return (
@@ -59,6 +60,7 @@ export default function ToList() {
                                 value={taskText}
                                 onChange={(e) => setTaskText(e.target.value)}
                                 maxLength={50}
+                                autoComplete="off"
                             />
                         </div>
                     </div>
@@ -72,24 +74,24 @@ export default function ToList() {
                     </Button>
                 </CardFooter>
             </Card>
-            <section className="w-[74%] h-[90%] max-h-[650px] rounded-[27px] overflow-y-auto">
+
+            <section className="w-[74%] h-[90%] max-h-[570px] rounded-[27px] overflow-y-auto">
                 {loading ? (
-                    <p>Carregando tarefas...</p>
+                    <p className="ml-50">Carregando tarefas...</p>
                 ) : (
-                    <Table className="w-[100%] min-h-[300px] h-[100%] !bg-teal-900">
-                        <TableCaption>A list of your recent invoices.</TableCaption>
-                        <TableHeader className="!rounded-lg bg-teal-900">
-                            <TableRow className="!rounded-lg">
+                    <Table className="w-[100%] bg-teal-900">
+                        <TableHeader className="rounded-lg bg-teal-900 sticky top-0 z-10">
+                            <TableRow>
                                 <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
                                 <TableHead className="w-[70%] text-white">Task name</TableHead>
                                 <TableHead className="w-[15%] text-white">Delete</TableHead>
                             </TableRow>
                         </TableHeader>
-                        <TableBody className="text-white !bg-teal-900 max-h-[250px] w-[100%] ">
-                            <TableRow className="!bg-white !h-[55px] !w-[250px]">
-                                <TableCell className="h-[50px]"></TableCell>
-                                <TableCell className="h-[50px]"></TableCell>
-                                <TableCell className="h-[50px]"></TableCell>
+                        <TableBody className="text-white">
+                            <TableRow className="!bg-neutral-100 !h-[20px] !w-[250px]">
+                                <TableCell className="h-[70px]"></TableCell>
+                                <TableCell className="h-[70px]"></TableCell>
+                                <TableCell className="h-[70px]"></TableCell>
                             </TableRow>
                             {section1Tasks.map((task) => (
                                 <TaskItem
