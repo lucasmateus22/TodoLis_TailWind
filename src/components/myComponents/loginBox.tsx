@@ -37,13 +37,14 @@ export default function LoginBox() {
     return (
         <Card className="w-96">
             <CardContent>
-                <form onSubmit={handleSubmit}> {/* <<-- Adicione o formulário aqui */}
+                <form className="gap-2 " onSubmit={handleSubmit}> {/* <<-- Adicione o formulário aqui */}
                     <CardHeader className="text-center gap-2 mb-4">
-                        <CardTitle className="text-lg">Login</CardTitle>
+                        <CardTitle className="text-xl text-teal-400">Login</CardTitle>
                         <CardDescription>Enter your credentials to continue</CardDescription>
                     </CardHeader>
-                    <Input type="email" value={email} placeholder="Email" required className="mt-2" />{/** onChange={(e) => setEmail(e.target.value)} */}
-                    <Input type="password" placeholder="Senha" required />{/**value={password} onChange={(e) => setPassword(e.target.value)} */}
+                    <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)}  placeholder="Email" required className="mt-2" />{/** */}
+                    <br />
+                    <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Senha" required />{/** */}
                     <div className="flex justify-around items-center mt-4 p-2 gap-2">
                         <CardAction>
                             <Button variant="default" size="lg" className="hover:bg-teal-600 text-white w-full" type="submit" disabled={loading}>
