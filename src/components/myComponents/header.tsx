@@ -21,11 +21,8 @@ import SheetDash from "./itemDashboard/itens/sheetDash"
 export default function Header() {
     return (
         <header className="flex !items-center justify-between w-full h-[9h] shadow-md px-4 py-2 bg-teal-900">
-            <div className="w-[20%] bg-teal-900 text-white flex items-center justify-between px-4 rounded-md
-
-                lg:bg-teal-800
-                ">
-                <div className="flex !items-center justify-start w-[70%]">
+            <div className="w-[20%] bg-teal-900 text-white flex items-center justify-between px-4 rounded-md">
+                <div className="flex items-center justify-start w-[70%] bg-teal-800 text-white px-4 rounded-md">
                     <SheetDash />
                     <span className="text-xl font-bold">Dashboard</span>
                 </div>
@@ -33,7 +30,7 @@ export default function Header() {
                     <HoverCardTrigger asChild>
                         <Menubar className="h-10">
                             <MenubarMenu>
-                                <MenubarTrigger className="!bg-teal-800 text-white text-sm font-medium px-3 py-1">
+                                <MenubarTrigger className="h-[60px] !bg-teal-800 text-white text-sm font-medium px-3 py-1">
                                     <Link />
                                 </MenubarTrigger>
                                 <MenubarContent>

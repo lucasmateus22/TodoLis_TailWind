@@ -60,6 +60,7 @@ export default function ToList() {
                                 value={taskText}
                                 onChange={(e) => setTaskText(e.target.value)}
                                 maxLength={50}
+                                autoComplete="off"
                             />
                         </div>
                     </div>
