@@ -3,7 +3,7 @@ import SectionDashboard from "@/components/myComponents/sectionDashboard";
 
 export default function Dashboard() {
     return (
-        <main className="flex flex-row items-center justify-center h-[87.5vh] min-w-screen !bg-teal-800">
+        <main className="flex flex-row items-center justify-center h-[87.5vh] min-w-screen">
             <div className="flex flex-row items-center !justify-center h-[100%] pt-10 w-full">
                 <div
                     className="flex flex-row justify-around h-[100%] w-[100%]" // ajusta para descontar header/footer
@@ -12,7 +12,7 @@ export default function Dashboard() {
                         <AppSidebar />
                     </div>
                     {/* Painel do conteúdo */}
-                    <div className="flex justify-center !w-[88%] h-[95%] bg-white rounded-lg">
+                    <div className="flex justify-center !w-[88%] h-[95%] bg-neutral-100 rounded-lg">
                         <SectionDashboard />
                     </div>
                 </div>

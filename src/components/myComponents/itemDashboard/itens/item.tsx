@@ -21,16 +21,16 @@ interface TaskItemProps {
 const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDeleteTask }) => {
     return (
         <TableRow
-            className={`p-2 h-[40px]
+            className={`p-2 !h-[20px]
             cursor-pointer 
             ${task.completed ? '!bg-teal-950' : 'bg-zinc-400'}`}
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
         >
-            <TableCell className="w-[15%] pl-5">
+            <TableCell className="w-[15%] pl-5 !h-[35px]">
                 {task.completed ? <CircleCheckBig /> : <Circle />}
             </TableCell>
-            <TableCell className="w-[75%] gap-2 items-center">
+            <TableCell className="w-[75%] gap-2 items-center h-[35px]">
                 <HoverCard>
                     <HoverCardTrigger className="flex items-center gap-2">
                         <div className="text-[1.2rem] text-gray-300">{task.text}</div>
@@ -40,7 +40,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                     </HoverCardContent>
                 </HoverCard >
             </TableCell>
-            <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%]'>
+            <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%] !h-[35px]'>
                 <div className="flex justify-center align-center rounded-full bg-red-500 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
                     <Trash2 className="w-4" />
                 </div>
