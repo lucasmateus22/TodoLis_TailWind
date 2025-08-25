@@ -60,15 +60,6 @@ Os componentes são gerenciados via CLI:
 npx shadcn-ui@latest add button
 ```
 
-## 📌 Planejamento Futuro
-
-- [ ] Integração com sistema de autenticação (provavelmente JWT + OAuth)
-- [ ] Integração com banco de dados (MongoDB, PostgreSQL ou outro)
-- [ ] Criação de back-end próprio (Node/Express, NestJS ou similar)
-- [ ] Deploy (Vercel, Netlify ou outro serviço)
-
----
-
 ## ✨ Agradecimentos
 
 - [shadcn/ui](https://ui.shadcn.com/) pela UI elegante e acessível
