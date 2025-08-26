@@ -57,7 +57,7 @@ export default function ToList() {
 
     return (
 
-        <div className="w-full h-full flex flex-row items-start justify-start gap-2">
+        <div className="flex flex-row items-start justify-start flex-wrap w-full h-full gap-2">
             {errorMessage &&
                 <AlertList title="Empty Input" 
                 description="Task text and time cannot be empty"

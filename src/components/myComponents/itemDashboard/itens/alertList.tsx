@@ -11,7 +11,7 @@ interface AlertListProps {
 export default function AlertList({ title, description, children, onClose }: AlertListProps) {
 
     return (
-        <Alert variant="destructive" className="absolute w-[25vw] top-5 left-0 right-0 m-auto z-50 border-1-red-500">
+        <Alert variant="destructive" className="absolute top-5 left-0 right-0 m-auto z-50 w-[25vw] border-1-red-500">
             <AlertCircleIcon />
             <AlertTitle>{title}</AlertTitle>
             <AlertDescription>
