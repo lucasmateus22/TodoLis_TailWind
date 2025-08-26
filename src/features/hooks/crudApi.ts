@@ -7,14 +7,15 @@ export const CrudApi = () => {
     const [loading, setLoading] = useState(true);
     const [tasks, setTasks] = useState<Task[]>([]);
 
-    const addTask = async (text: string) => {
-        if (text.trim() === "") {
+    const addTask = async (text: string, time: string) => {
+        if (text.trim() === "" || time.trim() === "") {
             console.error("Task text cannot be empty");
             return;
         }
         const newTask: Task = {
             id: Date.now().toString(),
             text: text,
+            time: time,
             completed: false,
         };
 

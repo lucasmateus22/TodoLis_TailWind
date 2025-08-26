@@ -30,15 +30,18 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
             <TableCell className="w-[15%] pl-5 !h-[35px]">
                 {task.completed ? <CircleCheckBig /> : <Circle />}
             </TableCell>
-            <TableCell className="w-[75%] gap-2 items-center h-[35px]">
+            <TableCell className="w-[35%] max-w-[35%] gap-2 items-center h-[35px] ">
                 <HoverCard>
-                    <HoverCardTrigger className="flex items-center gap-2">
-                        <div className="text-[1.2rem] text-gray-300">{task.text}</div>
+                    <HoverCardTrigger className="flex items-center justify-center gap-2 max-w-[100%]">
+                        <div className="text-[1.2rem] text-gray-200 text-center">{task.text}</div>
                     </HoverCardTrigger >
                     <HoverCardContent>
-                        {task.text}
+                        {task.text} in {task.time}
                     </HoverCardContent>
                 </HoverCard >
+            </TableCell>
+            <TableCell className="w-[35%] gap-2 items-center h-[35px]">
+                <div className="text-[1.2rem] text-gray-200 text-center">{task.time}</div>
             </TableCell>
             <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%] !h-[35px]'>
                 <div className="flex justify-center align-center rounded-full bg-red-500 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
