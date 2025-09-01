@@ -10,7 +10,6 @@ import {
 import {
     Table,
     TableBody,
-    TableCell,
     TableHead,
     TableHeader,
     TableRow,
@@ -30,40 +29,59 @@ export default function ToList() {
     const [errorMessage, setErrorMessage] = useState("")
     const [taskText, setTaskText] = useState("");
     const [taskTime, setTaskTime] = useState("");
-    const section1Limit = 50;
+    let [currentDate, setCurrentDate] = useState("");
 
-    const section1Tasks = tasks.slice(0, section1Limit);
+    const section1Limit = 50;
+    const sectionTasks = tasks.slice(0, section1Limit);
 
     const handleAddTask = () => {
+        console.log(typeof Date)
 
         if (!taskText.trim() || !taskTime.trim()) {
             setErrorMessage("Task text and time cannot be empty");
-            return; 
+            return;
         }
 
+        // Captura a data completa (data e hora) no momento em que a tarefa é adicionada.
+        const newTaskDate = new Date();
+        // Extrai a parte da data no formato de string, por exemplo: "16/06/2024"
+        const dateString = newTaskDate.toLocaleDateString();
+        // Extrai a parte da hora no formato de string, por exemplo: "14:30:00"
+        const timeString = newTaskDate.toLocaleTimeString();
+
         setErrorMessage("");
-        addTask(taskText, taskTime);
-        clearInputs();
+        // Adicione a nova data e hora à sua função addTask.
+        // Você pode usar 'dateString' e 'timeString' para passar as informações separadamente.
+        // Lembre-se de atualizar sua API/função `addTask` para aceitar esses dois novos parâmetros.
+        addTask(taskText, taskTime, dateString);
+        clearIncomingData();
     };
+
+    const getCurrentDate = () => {
+        const newDate = new Date().toLocaleDateString();
+        setCurrentDate(newDate);
+    }
 
     const handleCloseAlert = () => {
         setErrorMessage("")
     }
 
-    const clearInputs = () => {
+    const clearIncomingData = () => {
         setTaskText("");
         setTaskTime("");
     }
 
     return (
 
-        <div className="flex flex-row items-start justify-start flex-wrap w-full h-full gap-2">
+        <div className="flex flex-row items-start justify-center flex-wrap 
+                        w-full h-full md:gap-5">
             {errorMessage &&
-                <AlertList title="Empty Input" 
-                description="Task text and time cannot be empty"
-                onClose={handleCloseAlert} />
+                <AlertList title="Empty Input"
+                    description="Task text and time cannot be empty"
+                    onClose={handleCloseAlert} />
             }
-            <Card className="w-[25%] max-w-sm min-w-[300px] mt-28">
+            <Card className="w-[25%] max-w-sm min-w-[300px] gap-2 
+                            md:h-[38%] md:gap-5 md:">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -73,7 +91,7 @@ export default function ToList() {
                 </CardHeader>
                 <CardContent>
                     <div className="flex flex-col gap-6">
-                        <div className="grid gap-2">
+                        <div className="grid gap-1">
                             <Label htmlFor="task">Task</Label>
                             <Input
                                 id="task-text"
@@ -82,7 +100,7 @@ export default function ToList() {
                                 required
                                 value={taskText}
                                 onChange={(e) => setTaskText(e.target.value)}
-                                maxLength={50}
+                                maxLength={10}
                                 autoComplete="off"
                             />
                             <Input
@@ -98,22 +116,30 @@ export default function ToList() {
                         </div>
                     </div>
                 </CardContent>
-                <CardFooter className="justify-around flex-col gap-2 flex-wrap">
-                    <Button onClick={handleAddTask} className="w-35 text-white !bg-teal-950 hover:" variant="outline">
-                        Add Task
+                <CardFooter className="justify-around flex-row gap-2">
+                    <Button onClick={handleDeleteAllTasks} className="p-2 !bg-zinc-600" variant="destructive">
+                        Delete All
                     </Button>
-                    <Button onClick={handleDeleteAllTasks} className="w-35 !bg-zinc-600" variant="destructive">
-                        Delete All Tasks
+                    <Button onClick={handleAddTask} className="p-2 text-white !bg-teal-950 hover:" variant="outline">
+                        Add Task
                     </Button>
                 </CardFooter>
             </Card>
 
-            <section className="w-[74%] h-[90%] max-h-[570px] rounded-[27px] overflow-y-auto">
+            <section className="h-[250px] min-h-[450px] 
+            rounded-[27px] overflow-y-scroll bg-zinc-400 
+            md:w-[70%] md:h-[45vh]
+            max-h-100 overflow-y-auto
+            [&::-webkit-scrollbar]:w-2
+            [&::-webkit-scrollbar-track]:bg-gray-100
+            [&::-webkit-scrollbar-thumb]:bg-gray-300
+            dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+            dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                 {loading ? (
                     <p className="ml-50">Carregando tarefas...</p>
                 ) : (
-                    <Table className="w-[100%] bg-teal-900">
-                        <TableHeader className="rounded-lg bg-teal-900 sticky top-0 z-10">
+                    <Table className="w-[100%]">
+                        <TableHeader className="rounded-lg bg-teal-900">
                             <TableRow>
                                 <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
                                 <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
@@ -122,13 +148,7 @@ export default function ToList() {
                             </TableRow>
                         </TableHeader>
                         <TableBody className="text-white">
-                            <TableRow className="!bg-neutral-100 !h-[20px] !w-[250px]">
-                                <TableCell className="h-[70px]"></TableCell>
-                                <TableCell className="h-[70px]"></TableCell>
-                                <TableCell className="h-[70px]"></TableCell>
-                                <TableCell className="h-[70px]"></TableCell>
-                            </TableRow>
-                            {section1Tasks.map((task) => (
+                            {sectionTasks.map((task) => (
                                 <TaskItem
                                     key={task.id}
                                     task={task}
