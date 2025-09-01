@@ -35,7 +35,7 @@ export default function ChartDashboard() {
                     tickFormatter={(value) => value.slice(0, 3)}
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
-                <ChartLegend content={<ChartLegendContent />} />
+                {/*<ChartLegend content={<ChartLegendContent />} />*/}
                 <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
                 <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
             </BarChart>

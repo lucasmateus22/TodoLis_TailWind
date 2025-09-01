@@ -42,10 +42,25 @@ export default function ToList() {
             return;
         }
 
+        // Captura a data completa (data e hora) no momento em que a tarefa é adicionada.
+        const newTaskDate = new Date();
+        // Extrai a parte da data no formato de string, por exemplo: "16/06/2024"
+        const dateString = newTaskDate.toLocaleDateString();
+        // Extrai a parte da hora no formato de string, por exemplo: "14:30:00"
+        const timeString = newTaskDate.toLocaleTimeString();
+
         setErrorMessage("");
-        addTask(taskText, taskTime, currentDate);
+        // Adicione a nova data e hora à sua função addTask.
+        // Você pode usar 'dateString' e 'timeString' para passar as informações separadamente.
+        // Lembre-se de atualizar sua API/função `addTask` para aceitar esses dois novos parâmetros.
+        addTask(taskText, taskTime, dateString);
         clearIncomingData();
     };
+
+    const getCurrentDate = () => {
+        const newDate = new Date().toLocaleDateString();
+        setCurrentDate(newDate);
+    }
 
     const handleCloseAlert = () => {
         setErrorMessage("")
@@ -58,13 +73,15 @@ export default function ToList() {
 
     return (
 
-        <div className="flex flex-row items-start justify-center flex-wrap w-full h-full md:gap-5">
+        <div className="flex flex-row items-start justify-center flex-wrap 
+                        w-full h-full md:gap-5">
             {errorMessage &&
                 <AlertList title="Empty Input"
                     description="Task text and time cannot be empty"
                     onClose={handleCloseAlert} />
             }
-            <Card className="w-[25%] max-w-sm min-w-[300px] gap-2 md:h-[38%] md:gap-5 md:">
+            <Card className="w-[25%] max-w-sm min-w-[300px] gap-2 
+                            md:h-[38%] md:gap-5 md:">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -83,7 +100,7 @@ export default function ToList() {
                                 required
                                 value={taskText}
                                 onChange={(e) => setTaskText(e.target.value)}
-                                maxLength={50}
+                                maxLength={10}
                                 autoComplete="off"
                             />
                             <Input

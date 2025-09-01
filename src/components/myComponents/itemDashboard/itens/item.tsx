@@ -12,6 +12,7 @@ import React from 'react';
 import type { Task } from "@/types";
 
 
+
 interface TaskItemProps {
     task: Task;
     handleToggleTask: (id: string) => void;
@@ -19,6 +20,12 @@ interface TaskItemProps {
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDeleteTask }) => {
+
+    const GetTimeCompleted=(start: Date, end: Date): string=>{
+        const timeCompleted = new Date().toDateString();
+        return timeCompleted;
+    }
+
     return (
         <TableRow
             className={`p-2 !h-[20px]
@@ -27,21 +34,22 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
         >
-            <TableCell className={`w-[15%] pl-5 ${task.completed? 'text-white' : 'text-stone-600'} !h-[35px]`}>
+            <TableCell className={`w-[15%] pl-5 ${task.completed ? 'text-white' : 'text-stone-600'} !h-[35px]`}>
                 {task.completed ? <CircleCheckBig /> : <Circle />}
             </TableCell>
             <TableCell className="w-[35%] max-w-[35%] gap-2 items-center h-[35px] ">
                 <HoverCard>
                     <HoverCardTrigger className="flex items-center justify-center gap-2 max-w-[100%]">
-                        <div className={`text-[1.2rem] ${task.completed? 'text-white' : 'text-stone-600'} text-cente`}>{task.text}</div>
+                        <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-cente`}>{task.text}</div>
                     </HoverCardTrigger >
                     <HoverCardContent>
-                        <p>add {task.text} as {task.time} in {task.date}</p>
+                        <p>add {task.text} as {task.time} in {task.date} </p>
                     </HoverCardContent>
                 </HoverCard >
             </TableCell>
-            <TableCell className="w-[35%] gap-2 items-center h-[35px]">
-                <div className={`text-[1.2rem] ${task.completed? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
+            <TableCell className="flex w-[35%] gap-2 items-center h-[35px]">
+                <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
+                {task.completed ? <span className="ml-2 text-[0.8rem]"> {GetTimeCompleted(new Date(task.date), new Date())}</span> : null}
             </TableCell>
             <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%] !h-[35px]'>
                 <div className="flex justify-center align-center rounded-full bg-red-500 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
