@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ToList from "./itens/toDoList"
-import CarouselDash from "./itens/carousel"
+import ChartDashboard from "./itens/chart"
 
 export default function ItemDashboard() {
     return (
@@ -12,8 +12,8 @@ export default function ItemDashboard() {
             <TabsContent value="todolist" className="w-[100%] !h-[100%]">
                 <ToList />
             </TabsContent>
-            <TabsContent value="Carousel" className="flex justify-around align-end">
-                <CarouselDash />
+            <TabsContent value="Carousel" className="flex flex-column align-center justify-center align-end h-[100%] bg-stone-500">
+                <ChartDashboard />
             </TabsContent>
         </Tabs>
     )
