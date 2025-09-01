@@ -6,7 +6,7 @@ module.exports = {
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}', // <<-- ESTA LINHA É CRUCIAL PARA SEUS COMPONENTES
+    './src/**/*.{ts,tsx}', 
   ],
   prefix: "",
   theme: {

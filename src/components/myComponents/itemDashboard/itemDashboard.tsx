@@ -4,12 +4,12 @@ import CarouselDash from "./itens/carousel"
 
 export default function ItemDashboard() {
     return (
-        <Tabs defaultValue="todolist" className="w-[100%] h-[100vh] pl-16 rounded-lg">
-            <TabsList className=" relative left-[5%] top-[11%] gap-2">
+        <Tabs defaultValue="todolist" className="w-[100%] h-[100%] pt-1 rounded-lg bg-stone-200">
+            <TabsList className="gap-2 flex justify-center w-[100%] bg-stone-300 rounded-t-lg  md:w-[30%] md:ml-[3.5vw]">
                 <TabsTrigger value="todolist" className="text-white !bg-teal-950">To do list</TabsTrigger>
                 <TabsTrigger value="Carousel" className="text-white !bg-teal-950">Carousel</TabsTrigger>
             </TabsList>
-            <TabsContent value="todolist" className="w-[100%] !h-[100%] mt-9">
+            <TabsContent value="todolist" className="w-[100%] !h-[100%]">
                 <ToList />
             </TabsContent>
             <TabsContent value="Carousel" className="flex justify-around align-end">
