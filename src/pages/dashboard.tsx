@@ -2,7 +2,7 @@ import ItemDashboard from "@/components/myComponents/itemDashboard/itemDashboard
 
 export default function Dashboard() {
     return (
-        <main className="flex flex-row items-center justify-center h-[87.5vh] min-w-screen">
+        <main className="flex flex-row items-center justify-center h-[100vh] min-w-screen">
             {/* Painel do conteúdo */}
             <div className="flex justify-center !w-[95%] h-[100%] rounded-lg p-5">
                 <ItemDashboard />

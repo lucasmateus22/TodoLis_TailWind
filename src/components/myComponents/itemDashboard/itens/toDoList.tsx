@@ -113,40 +113,44 @@ export default function ToList() {
                 </CardFooter>
             </Card>
 
-            <section className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-y-scroll bg-zinc-400 
-            md:w-[70%] md:h-[45vh]
+            <div className="h-[250px] min-h-[450px] 
+            rounded-[27px] overflow-hidden bg-stone-100
+            md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
+                <section className="h-[250px] min-h-[450px] 
+            rounded-[27px] overflow-y-scroll 
+            md:bg-zinc-400 md:w-[100%] md:h-[45vh]
             max-h-100 overflow-y-auto
-            [&::-webkit-scrollbar]:w-2
-            [&::-webkit-scrollbar-track]:bg-gray-100
+            [&::-webkit-scrollbar]:w-1
+            [&::-webkit-scrollbar-track]:bg-teal-800
             [&::-webkit-scrollbar-thumb]:bg-gray-300
             dark:[&::-webkit-scrollbar-track]:bg-neutral-700
             dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                {loading ? (
-                    <p className="ml-50">Carregando tarefas...</p>
-                ) : (
-                    <Table className="w-[100%]">
-                        <TableHeader className="rounded-lg bg-teal-900">
-                            <TableRow>
-                                <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
-                                <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
-                                <TableHead className="w-[35%] text-white text-center">Task time</TableHead>
-                                <TableHead className="w-[15%] text-white">Delete</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody className="text-white">
-                            {sectionTasks.map((task) => (
-                                <TaskItem
-                                    key={task.id}
-                                    task={task}
-                                    handleToggleTask={handleToggleTask}
-                                    handleDeleteTask={handleDeleteTask}
-                                />
-                            ))}
-                        </TableBody>
-                    </Table>
-                )}
-            </section>
+                    {loading ? (
+                        <p className="ml-50">Carregando tarefas...</p>
+                    ) : (
+                        <Table className="w-[100%]">
+                            <TableHeader className="rounded-lg bg-teal-900">
+                                <TableRow>
+                                    <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
+                                    <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
+                                    <TableHead className="w-[35%] text-white text-center">Task time</TableHead>
+                                    <TableHead className="w-[15%] text-white">Delete</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody className="text-white">
+                                {sectionTasks.map((task) => (
+                                    <TaskItem
+                                        key={task.id}
+                                        task={task}
+                                        handleToggleTask={handleToggleTask}
+                                        handleDeleteTask={handleDeleteTask}
+                                    />
+                                ))}
+                            </TableBody>
+                        </Table>
+                    )}
+                </section>
+            </div>
         </div>
     );
 }

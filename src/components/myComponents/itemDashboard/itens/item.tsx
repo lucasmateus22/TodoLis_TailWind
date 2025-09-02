@@ -37,15 +37,19 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                     <HoverCardTrigger className="flex items-center justify-center gap-2 max-w-[100%]">
                         <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-cente`}>{task.text}</div>
                     </HoverCardTrigger >
-                    <HoverCardContent>
-                        <p>add {task.text} as {task.time} in {task.date} </p>
+                    <HoverCardContent className="w-auto max-w-[310px] h-full">
+                        <p>add {task.text} as {task.time} in {task.completed && task.timeCompleted && (
+                            <span>
+                                {task.timeCompleted}
+                            </span>
+                        )} </p>
                     </HoverCardContent>
                 </HoverCard >
             </TableCell>
-            <TableCell className="flex w-[35%] gap-2 items-center h-[35px]">
+            <TableCell className="flex justify-center !w-[100%] gap-2 items-center h-[100%]">
                 <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
                 {task.completed && task.timeCompleted && (
-                    <span className="ml-2 text-[0.8rem] text-green-300">
+                    <span>
                         ✔ {task.timeCompleted}
                     </span>
                 )}
