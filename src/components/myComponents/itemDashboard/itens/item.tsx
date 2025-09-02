@@ -38,11 +38,11 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                         <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-cente`}>{task.text}</div>
                     </HoverCardTrigger >
                     <HoverCardContent className="w-auto max-w-[310px] h-full">
-                        <p>add {task.text} as {task.time} in {task.completed && task.timeCompleted && (
+                        {task.completed && task.timeCompleted ? 
                             <span>
-                                {task.timeCompleted}
+                                <p>add {task.text} as {task.time} in{task.timeCompleted}</p>
                             </span>
-                        )} </p>
+                        : <p>Task incomplete</p>}
                     </HoverCardContent>
                 </HoverCard >
             </TableCell>

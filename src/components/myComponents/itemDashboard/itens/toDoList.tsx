@@ -60,7 +60,7 @@ export default function ToList() {
 
     return (
 
-        <div className="flex flex-row items-start justify-center flex-wrap 
+        <div className="flex flex-row items-start justify-center flex-wrap gap-2
                         w-full h-full md:gap-5">
             {errorMessage &&
                 <AlertList title="Empty Input"
@@ -114,7 +114,7 @@ export default function ToList() {
             </Card>
 
             <div className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-hidden bg-stone-100
+            rounded-[27px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
                 <section className="h-[250px] min-h-[450px] 
             rounded-[27px] overflow-y-scroll 

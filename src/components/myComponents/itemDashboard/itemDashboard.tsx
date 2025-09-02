@@ -4,7 +4,7 @@ import ChartDashboard from "./itens/chart"
 
 export default function ItemDashboard() {
     return (
-        <Tabs defaultValue="todolist" className="w-[100%] h-[100%] pt-1 rounded-lg md:bg-stone-200">
+        <Tabs defaultValue="todolist" className="w-[100%] h-[100%] pt-1 rounded-lg bg-stone-200">
             <TabsList className="gap-2 flex justify-center w-[100%] bg-stone-300 rounded-t-lg  md:w-[30%] md:ml-[3.5vw]">
                 <TabsTrigger value="todolist" className="text-white !bg-teal-950">To do list</TabsTrigger>
                 <TabsTrigger value="Chart" className="text-white !bg-teal-950">Chart</TabsTrigger>
