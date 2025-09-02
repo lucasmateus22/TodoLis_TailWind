@@ -18,6 +18,7 @@ export const CrudApi = () => {
             time: time,
             date: date,
             completed: false,
+            timeCompleted: time,
         };
 
         try {
@@ -83,26 +84,42 @@ export const CrudApi = () => {
     }
 
     const handleToggleTask = async (id: string) => {
-        const taskToUpdate = tasks.find(task => task.id === id);
-        if (!taskToUpdate) return
-        try {
-            const response = await fetch(`${API_URL}/${id}`,
-                {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-type': 'application/json',
-                    },
-                    body: JSON.stringify({ completed: !taskToUpdate.completed })
-                }
-            );
-            if (response.ok) {
-                fetchTasks();
-            }
-        } catch (error) {
-            console.error('Error to updating task:', error)
-        }
-    }
+  const taskToUpdate = tasks.find(task => task.id === id);
+  if (!taskToUpdate) return;
 
+  const newCompletedStatus = !taskToUpdate.completed;
+
+  let updateData: { completed: boolean; timeCompleted?: string } = { 
+    completed: newCompletedStatus 
+  };
+
+  if (newCompletedStatus) {
+    updateData.timeCompleted = new Date().toLocaleTimeString();
+  } else {
+    updateData.timeCompleted = undefined; // limpa se desmarcar
+  }
+
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(updateData),
+    });
+
+    if (response.ok) {
+      // atualiza no estado local, sem precisar dar fetchTasks em tudo
+      setTasks(prev =>
+        prev.map(task =>
+          task.id === id ? { ...task, ...updateData } : task
+        )
+      );
+    }
+  } catch (error) {
+    console.error('Error updating task:', error);
+  }
+};
     useEffect(() => {
         fetchTasks();
     }, []);

@@ -29,7 +29,6 @@ export default function ToList() {
     const [errorMessage, setErrorMessage] = useState("")
     const [taskText, setTaskText] = useState("");
     const [taskTime, setTaskTime] = useState("");
-    let [currentDate, setCurrentDate] = useState("");
 
     const section1Limit = 50;
     const sectionTasks = tasks.slice(0, section1Limit);
@@ -42,24 +41,17 @@ export default function ToList() {
             return;
         }
 
-        // Captura a data completa (data e hora) no momento em que a tarefa é adicionada.
         const newTaskDate = new Date();
-        // Extrai a parte da data no formato de string, por exemplo: "16/06/2024"
         const dateString = newTaskDate.toLocaleDateString();
-        // Extrai a parte da hora no formato de string, por exemplo: "14:30:00"
         const timeString = newTaskDate.toLocaleTimeString();
 
         setErrorMessage("");
-        // Adicione a nova data e hora à sua função addTask.
-        // Você pode usar 'dateString' e 'timeString' para passar as informações separadamente.
-        // Lembre-se de atualizar sua API/função `addTask` para aceitar esses dois novos parâmetros.
         addTask(taskText, taskTime, dateString);
         clearIncomingData();
     };
 
-    const getCurrentDate = () => {
-        const newDate = new Date().toLocaleDateString();
-        setCurrentDate(newDate);
+    const getCurrentHour = () => {
+        const newDate = new Date().toLocaleTimeString();
     }
 
     const handleCloseAlert = () => {
