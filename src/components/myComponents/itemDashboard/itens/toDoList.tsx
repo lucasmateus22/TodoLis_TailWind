@@ -126,7 +126,9 @@ export default function ToList() {
             dark:[&::-webkit-scrollbar-track]:bg-neutral-700
             dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                     {loading ? (
-                        <p className="ml-50">Carregando tarefas...</p>
+                        <div className="flex justify-center align-center w-[100%] h-[100%]">
+                            <h4>Carregando tarefas...</h4>
+                        </div>
                     ) : (
                         <Table className="w-[100%]">
                             <TableHeader className="rounded-lg bg-teal-900">
