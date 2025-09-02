@@ -43,16 +43,11 @@ export default function ToList() {
 
         const newTaskDate = new Date();
         const dateString = newTaskDate.toLocaleDateString();
-        const timeString = newTaskDate.toLocaleTimeString();
 
         setErrorMessage("");
         addTask(taskText, taskTime, dateString);
         clearIncomingData();
     };
-
-    const getCurrentHour = () => {
-        const newDate = new Date().toLocaleTimeString();
-    }
 
     const handleCloseAlert = () => {
         setErrorMessage("")

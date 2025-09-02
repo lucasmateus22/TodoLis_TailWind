@@ -21,11 +21,6 @@ interface TaskItemProps {
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDeleteTask }) => {
 
-    const GetTimeCompleted = (start: Date, end: Date): string => {
-        const timeCompleted = new Date().toLocaleTimeString();
-        return timeCompleted;
-    }
-
     return (
         <TableRow
             className={`p-2 !h-[20px]
@@ -51,7 +46,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                 <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
                 {task.completed && task.timeCompleted && (
                     <span className="ml-2 text-[0.8rem] text-green-300">
-                        ✔ concluída às {task.timeCompleted}
+                        ✔ {task.timeCompleted}
                     </span>
                 )}
             </TableCell>
