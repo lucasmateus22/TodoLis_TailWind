@@ -21,7 +21,7 @@ import SheetDash from "./itemDashboard/itens/sheetDash"
 export default function Header() {
     return (
         <header className="flex !items-center justify-between
-                w-full h-[9h] 
+                w-[100%] h-[9h] 
                 shadow-md px-4 py-2 bg-teal-900">
             <div className="flex items-center justify-between 
                 w-[20%] min-w-[370px]

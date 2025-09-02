@@ -29,7 +29,6 @@ export default function ToList() {
     const [errorMessage, setErrorMessage] = useState("")
     const [taskText, setTaskText] = useState("");
     const [taskTime, setTaskTime] = useState("");
-    let [currentDate, setCurrentDate] = useState("");
 
     const section1Limit = 50;
     const sectionTasks = tasks.slice(0, section1Limit);
@@ -42,25 +41,13 @@ export default function ToList() {
             return;
         }
 
-        // Captura a data completa (data e hora) no momento em que a tarefa é adicionada.
         const newTaskDate = new Date();
-        // Extrai a parte da data no formato de string, por exemplo: "16/06/2024"
         const dateString = newTaskDate.toLocaleDateString();
-        // Extrai a parte da hora no formato de string, por exemplo: "14:30:00"
-        const timeString = newTaskDate.toLocaleTimeString();
 
         setErrorMessage("");
-        // Adicione a nova data e hora à sua função addTask.
-        // Você pode usar 'dateString' e 'timeString' para passar as informações separadamente.
-        // Lembre-se de atualizar sua API/função `addTask` para aceitar esses dois novos parâmetros.
         addTask(taskText, taskTime, dateString);
         clearIncomingData();
     };
-
-    const getCurrentDate = () => {
-        const newDate = new Date().toLocaleDateString();
-        setCurrentDate(newDate);
-    }
 
     const handleCloseAlert = () => {
         setErrorMessage("")
@@ -73,7 +60,7 @@ export default function ToList() {
 
     return (
 
-        <div className="flex flex-row items-start justify-center flex-wrap 
+        <div className="flex flex-row items-start justify-center flex-wrap gap-2
                         w-full h-full md:gap-5">
             {errorMessage &&
                 <AlertList title="Empty Input"
@@ -126,40 +113,46 @@ export default function ToList() {
                 </CardFooter>
             </Card>
 
-            <section className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-y-scroll bg-zinc-400 
-            md:w-[70%] md:h-[45vh]
+            <div className="h-[250px] min-h-[450px] 
+            rounded-[27px] overflow-hidden min-w-[400px]
+            md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
+                <section className="h-[250px] min-h-[450px] 
+            rounded-[27px] overflow-y-scroll 
+            md:bg-zinc-400 md:w-[100%] md:h-[45vh]
             max-h-100 overflow-y-auto
-            [&::-webkit-scrollbar]:w-2
-            [&::-webkit-scrollbar-track]:bg-gray-100
+            [&::-webkit-scrollbar]:w-1
+            [&::-webkit-scrollbar-track]:bg-teal-800
             [&::-webkit-scrollbar-thumb]:bg-gray-300
             dark:[&::-webkit-scrollbar-track]:bg-neutral-700
             dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                {loading ? (
-                    <p className="ml-50">Carregando tarefas...</p>
-                ) : (
-                    <Table className="w-[100%]">
-                        <TableHeader className="rounded-lg bg-teal-900">
-                            <TableRow>
-                                <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
-                                <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
-                                <TableHead className="w-[35%] text-white text-center">Task time</TableHead>
-                                <TableHead className="w-[15%] text-white">Delete</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody className="text-white">
-                            {sectionTasks.map((task) => (
-                                <TaskItem
-                                    key={task.id}
-                                    task={task}
-                                    handleToggleTask={handleToggleTask}
-                                    handleDeleteTask={handleDeleteTask}
-                                />
-                            ))}
-                        </TableBody>
-                    </Table>
-                )}
-            </section>
+                    {loading ? (
+                        <div className="flex justify-center align-center w-[100%] h-[100%]">
+                            <h4>Carregando tarefas...</h4>
+                        </div>
+                    ) : (
+                        <Table className="w-[100%]">
+                            <TableHeader className="rounded-lg bg-teal-900">
+                                <TableRow>
+                                    <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
+                                    <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
+                                    <TableHead className="w-[35%] text-white text-center">Task time</TableHead>
+                                    <TableHead className="w-[15%] text-white">Delete</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody className="text-white">
+                                {sectionTasks.map((task) => (
+                                    <TaskItem
+                                        key={task.id}
+                                        task={task}
+                                        handleToggleTask={handleToggleTask}
+                                        handleDeleteTask={handleDeleteTask}
+                                    />
+                                ))}
+                            </TableBody>
+                        </Table>
+                    )}
+                </section>
+            </div>
         </div>
     );
 }

@@ -1,151 +1,116 @@
 {
   "tasks": [
     {
-      "id": "1756473320523",
-      "text": "23443",
-      "time": "04:03",
-      "date": "",
-      "completed": true
+      "id": "1756824278326",
+      "text": "fgfg3",
+      "time": "04:23",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "14:31:10"
     },
     {
-      "id": "1756473324122",
-      "text": "545",
-      "time": "04:05",
-      "date": "",
-      "completed": true
+      "id": "1756834275556",
+      "text": "fs",
+      "time": "03:43",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "14:39:24"
     },
     {
-      "id": "1756473329873",
-      "text": "54534",
-      "time": "04:54",
-      "date": "",
-      "completed": true
+      "id": "1756834277972",
+      "text": "3424",
+      "time": "12:23",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "14:39:24"
     },
     {
-      "id": "1756473336845",
-      "text": "5445",
-      "time": "10:22",
-      "date": "",
-      "completed": true
+      "id": "1756834279804",
+      "text": "213123",
+      "time": "03:13",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "15:10:24"
     },
     {
-      "id": "1756473340502",
-      "text": "4353",
-      "time": "03:04",
-      "date": "",
-      "completed": true
+      "id": "1756834281380",
+      "text": "123123",
+      "time": "23:13",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "15:10:25"
     },
     {
-      "id": "1756473346902",
-      "text": "34",
-      "time": "03:04",
-      "date": "",
-      "completed": true
+      "id": "1756834283164",
+      "text": "12313",
+      "time": "12:23",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "15:10:25"
     },
     {
-      "id": "1756473355333",
-      "text": "ere34",
-      "time": "23:04",
-      "date": "",
-      "completed": true
+      "id": "1756834284860",
+      "text": "3123123",
+      "time": "12:13",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "14:39:27"
     },
     {
-      "id": "1756473881589",
-      "text": "q34",
-      "time": "23:23",
-      "date": "",
-      "completed": true
+      "id": "1756834286812",
+      "text": "31231",
+      "time": "12:31",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "14:39:28"
     },
     {
-      "id": "1756735453337",
-      "text": "3434234",
-      "time": "23:42",
-      "date": "",
-      "completed": false
+      "id": "1756834288532",
+      "text": "3123",
+      "time": "03:23",
+      "date": "02/09/2025",
+      "completed": false,
+      "timeCompleted": "03:23"
     },
     {
-      "id": "1756735455729",
-      "text": "4234",
-      "time": "04:34",
-      "date": "",
-      "completed": false
+      "id": "1756834290372",
+      "text": "31233",
+      "time": "12:03",
+      "date": "02/09/2025",
+      "completed": false,
+      "timeCompleted": "12:03"
     },
     {
-      "id": "1756735459808",
-      "text": "42342",
-      "time": "03:24",
-      "date": "",
-      "completed": false
+      "id": "1756834293300",
+      "text": "3123123",
+      "time": "12:03",
+      "date": "02/09/2025",
+      "completed": true,
+      "timeCompleted": "14:31:45"
     },
     {
-      "id": "1756735461560",
-      "text": "34234",
-      "time": "23:42",
-      "date": "",
-      "completed": false
+      "id": "1756834295460",
+      "text": "12332",
+      "time": "12:03",
+      "date": "02/09/2025",
+      "completed": false,
+      "timeCompleted": "12:03"
     },
     {
-      "id": "1756735463273",
-      "text": "42342",
-      "time": "04:34",
-      "date": "",
-      "completed": false
+      "id": "1756834297596",
+      "text": "3123",
+      "time": "23:03",
+      "date": "02/09/2025",
+      "completed": false,
+      "timeCompleted": "23:03"
     },
     {
-      "id": "1756735464944",
-      "text": "4234234",
-      "time": "23:04",
-      "date": "",
-      "completed": false
-    },
-    {
-      "id": "1756735471104",
-      "text": "42334",
-      "time": "04:03",
-      "date": "",
-      "completed": false
-    },
-    {
-      "id": "1756735474720",
-      "text": "32434",
-      "time": "03:04",
-      "date": "",
-      "completed": false
-    },
-    {
-      "id": "1756745739176",
-      "text": "re",
-      "time": "03:04",
-      "date": "",
-      "completed": false
-    },
-    {
-      "id": "1756747623403",
-      "text": "aaaaaaaaaa",
-      "time": "22:22",
-      "date": "",
-      "completed": false
-    },
-    {
-      "id": "1756749144842",
-      "text": "rter",
-      "time": "03:45",
-      "date": "",
-      "completed": false
-    },
-    {
-      "id": "1756749696972",
-      "text": "fsdfsdf",
-      "time": "23:02",
-      "date": "01/09/2025",
-      "completed": false
-    },
-    {
-      "id": "1756749707049",
-      "text": "tttttt",
-      "time": "06:07",
-      "date": "01/09/2025",
-      "completed": false
+      "id": "1756834299980",
+      "text": "312",
+      "time": "12:03",
+      "date": "02/09/2025",
+      "completed": false,
+      "timeCompleted": "12:03"
     }
   ]
 }

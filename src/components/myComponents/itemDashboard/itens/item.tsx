@@ -21,11 +21,6 @@ interface TaskItemProps {
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDeleteTask }) => {
 
-    const GetTimeCompleted=(start: Date, end: Date): string=>{
-        const timeCompleted = new Date().toDateString();
-        return timeCompleted;
-    }
-
     return (
         <TableRow
             className={`p-2 !h-[20px]
@@ -42,14 +37,22 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                     <HoverCardTrigger className="flex items-center justify-center gap-2 max-w-[100%]">
                         <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-cente`}>{task.text}</div>
                     </HoverCardTrigger >
-                    <HoverCardContent>
-                        <p>add {task.text} as {task.time} in {task.date} </p>
+                    <HoverCardContent className="w-auto max-w-[310px] h-full">
+                        {task.completed && task.timeCompleted ? 
+                            <span>
+                                <p>add {task.text} as {task.time} in{task.timeCompleted}</p>
+                            </span>
+                        : <p>Task incomplete</p>}
                     </HoverCardContent>
                 </HoverCard >
             </TableCell>
-            <TableCell className="flex w-[35%] gap-2 items-center h-[35px]">
+            <TableCell className="flex justify-center !w-[100%] gap-2 items-center h-[100%]">
                 <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
-                {task.completed ? <span className="ml-2 text-[0.8rem]"> {GetTimeCompleted(new Date(task.date), new Date())}</span> : null}
+                {task.completed && task.timeCompleted && (
+                    <span>
+                        ✔ {task.timeCompleted}
+                    </span>
+                )}
             </TableCell>
             <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%] !h-[35px]'>
                 <div className="flex justify-center align-center rounded-full bg-red-500 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
