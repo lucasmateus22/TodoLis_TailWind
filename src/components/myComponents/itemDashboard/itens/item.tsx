@@ -25,7 +25,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
         <TableRow
             className={`p-2 !h-[20px]
             cursor-pointer 
-            ${task.completed ? '!bg-teal-950' : 'bg-zinc-400'}`}
+            ${task.completed ? '!bg-emerald-900' : 'bg-zinc-400'}`}
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
         >

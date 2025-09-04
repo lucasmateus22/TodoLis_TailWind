@@ -27,15 +27,15 @@ const getChartData = (tasks: Task[]) => {
 const chartConfig = {
     tasks: {
         label: "Tarefas",
-        color: "#1a7266ff",
+        color: "#097a5aff",
     },
     completed: {
         label: "Concluídas",
-        color: "#0d9488", // teal-600
+        color: "#059669", // teal-600
     },
     pending: {
         label: "Pendentes",
-        color: "#2dd4bf", // teal-400
+        color: "#04573fff", // teal-400
     },
 };
 
@@ -53,7 +53,7 @@ export default function ChartDashboard() {
     
     // 3. Render the chart with the transformed data
     return (
-        <ChartContainer config={chartConfig} className="max-h-[450px] w-[80%]">
+        <ChartContainer config={chartConfig} className="flex self-end max-h-[700px] w-[80%] dark">
             <BarChart accessibilityLayer data={chartData}>
                 <CartesianGrid vertical={false} />
                 <XAxis
@@ -61,10 +61,10 @@ export default function ChartDashboard() {
                     tickLine={false}
                     tickMargin={10}
                     axisLine={false}
-                    tickFormatter={(value) => value.slice(0, 3)}
+                    tickFormatter={(value) => value.slice(0, 10)}
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
-                <ChartLegend content={<ChartLegendContent />} />
+                <ChartLegend className="text-white" content={<ChartLegendContent />} />
                 <Bar dataKey="completed" fill="var(--color-completed)" radius={4} />
                 <Bar dataKey="pending" fill="var(--color-pending)" radius={4} />
             </BarChart>
