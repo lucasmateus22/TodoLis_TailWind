@@ -68,7 +68,7 @@ export default function ToList() {
                     onClose={handleCloseAlert} />
             }
             <Card className="w-[25%] max-w-sm min-w-[300px] gap-2 
-                            md:h-[38%] md:gap-5 md:">
+                            md:h-[38%] md:gap-5 bg-gray-700">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
                     <CardDescription>
@@ -107,7 +107,7 @@ export default function ToList() {
                     <Button onClick={handleDeleteAllTasks} className="p-2 !bg-zinc-600" variant="destructive">
                         Delete All
                     </Button>
-                    <Button onClick={handleAddTask} className="p-2 text-white !bg-teal-950 hover:" variant="outline">
+                    <Button onClick={handleAddTask} className="p-2 text-white hover:">
                         Add Task
                     </Button>
                 </CardFooter>
@@ -131,7 +131,7 @@ export default function ToList() {
                         </div>
                     ) : (
                         <Table className="w-[100%]">
-                            <TableHeader className="rounded-lg bg-teal-900">
+                            <TableHeader className="rounded-lg bg-emerald-950">
                                 <TableRow>
                                     <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
                                     <TableHead className="w-[35%] text-white text-center">Task name</TableHead>

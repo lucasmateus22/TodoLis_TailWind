@@ -14,7 +14,7 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
-import { Link } from "lucide-react"
+import {  User } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import SheetDash from "./itemDashboard/itens/sheetDash"
 
@@ -22,13 +22,13 @@ export default function Header() {
     return (
         <header className="flex !items-center justify-between
                 w-[100%] h-[9h] 
-                shadow-md px-4 py-2 bg-teal-900">
+                shadow-md px-4 py-2 bg-emerald-800">
             <div className="flex items-center justify-between 
-                w-[20%] min-w-[370px]
-                bg-teal-900 text-white px-4 rounded-md">
+                w-[98%] min-w-[370px]
+                text-white px-4 rounded-md">
                 <div className="flex items-center justify-start 
                     w-[70%] 
-                    bg-teal-800 text-white px-4 rounded-md">
+                    text-white px-4 rounded-md">
                     <SheetDash />
                     <span className="text-xl font-bold">Dashboard</span>
                 </div>
@@ -36,8 +36,8 @@ export default function Header() {
                     <HoverCardTrigger asChild>
                         <Menubar className="h-10">
                             <MenubarMenu>
-                                <MenubarTrigger className="h-[60px] !bg-teal-800 text-white text-sm font-medium px-3 py-1">
-                                    <Link />
+                                <MenubarTrigger className="h-[60px] w-[60px] !bg-emerald-500 text-white text-sm font-medium p-0 !rounded-full">
+                                    <User />
                                 </MenubarTrigger>
                                 <MenubarContent>
                                     <MenubarItem>
