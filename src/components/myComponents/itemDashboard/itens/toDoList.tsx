@@ -123,7 +123,7 @@ export default function ToList() {
             <div className="h-[250px] md:h-[250px] md:min-h-[450px] min-h-[150px] 
             rounded-[17px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
-                <section className="h-[250px] min-h-[150px] 
+                <section className="h-[250px] min-h-[150px] md:min-h-[450px]
                 rounded-[17px] overflow-y-scroll 
                 md:bg-zinc-400 md:w-[100%] md:h-[45vh]
                 max-h-100 overflow-y-auto
