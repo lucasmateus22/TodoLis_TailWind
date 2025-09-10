@@ -37,7 +37,7 @@ export default function LoginBox() {
     return (
         <Card className="w-96 !min-h-[300px]">
             <CardContent>
-                <form className="gap-2 " onSubmit={handleSubmit}> {/* <<-- Adicione o formulário aqui */}
+                <form className="gap-2 " onSubmit={handleSubmit}>
                     <CardHeader className="text-center gap-2 mb-4">
                         <CardTitle className="text-xl text-teal-700">Login</CardTitle>
                         <CardDescription>Enter your credentials to continue</CardDescription>
@@ -72,10 +72,9 @@ export default function LoginBox() {
                 </form>
                 <CardFooter className="flex justify-center pt-3">
                     <small>
-                        <span className="text-sm text-muted-foreground">Don't have an account?
-                            <br />
+                        <span className="text-sm text-muted-foreground">
+                            <p>Don't have an account?</p>
                             <a href="/dashboard">Enter without account</a>
-
                         </span>
                     </small>
                 </CardFooter>

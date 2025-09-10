@@ -14,7 +14,7 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
-import {  User } from "lucide-react"
+import { User } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import SheetDash from "./itemDashboard/itens/sheetDash"
 
@@ -32,38 +32,31 @@ export default function Header() {
                     <SheetDash />
                     <span className="text-xl font-bold">Dashboard</span>
                 </div>
-                <HoverCard>
-                    <HoverCardTrigger asChild>
-                        <Menubar className="h-10">
-                            <MenubarMenu>
-                                <MenubarTrigger className="h-[60px] w-[60px] !bg-emerald-500 text-white text-sm font-medium p-0 !rounded-full">
-                                    <User />
-                                </MenubarTrigger>
-                                <MenubarContent>
-                                    <MenubarItem>
-                                        <Avatar>
-                                            <AvatarImage src="https://github.com/shadcn.png" />
-                                            <AvatarFallback>User</AvatarFallback>
-                                        </Avatar>
-                                    </MenubarItem>
-                                    <MenubarItem>Dashboard</MenubarItem>
-                                    <MenubarItem><a href="https://github.com/lucasmateus22">GitHub</a></MenubarItem>
-                                    <MenubarSeparator />
-                                    <MenubarSub>
-                                        <MenubarSubTrigger>Share</MenubarSubTrigger>
-                                        <MenubarSubContent>
-                                            <MenubarItem><a href="https://www.linkedin.com/in/lucas-mateus-a00485242/">Linkedin</a></MenubarItem>
-                                            <MenubarItem>Vercel</MenubarItem>
-                                        </MenubarSubContent>
-                                    </MenubarSub>
-                                </MenubarContent>
-                            </MenubarMenu>
-                        </Menubar>
-                    </HoverCardTrigger>
-                    <HoverCardContent className="absolute w-40 h-13 right-10 -bottom-1 flex items-center justify-center">
-                        <p className="text-black">My social media</p>
-                    </HoverCardContent>
-                </HoverCard>
+                <Menubar className="h-10">
+                    <MenubarMenu>
+                        <MenubarTrigger className="h-[60px] w-[60px] !bg-emerald-700 text-white text-sm font-medium p-0 !rounded-full">
+                            <User />
+                        </MenubarTrigger>
+                        <MenubarContent>
+                            <MenubarItem>
+                                <Avatar>
+                                    <AvatarImage src="https://github.com/shadcn.png" />
+                                    <AvatarFallback>User</AvatarFallback>
+                                </Avatar>
+                            </MenubarItem>
+                            <MenubarItem>Dashboard</MenubarItem>
+                            <MenubarItem><a href="https://github.com/lucasmateus22">GitHub</a></MenubarItem>
+                            <MenubarSeparator />
+                            <MenubarSub>
+                                <MenubarSubTrigger>Share</MenubarSubTrigger>
+                                <MenubarSubContent>
+                                    <MenubarItem><a href="https://www.linkedin.com/in/lucas-mateus-a00485242/">Linkedin</a></MenubarItem>
+                                    <MenubarItem>Vercel</MenubarItem>
+                                </MenubarSubContent>
+                            </MenubarSub>
+                        </MenubarContent>
+                    </MenubarMenu>
+                </Menubar>
             </div>
 
         </header>

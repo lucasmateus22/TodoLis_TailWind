@@ -114,24 +114,23 @@ export default function ToList() {
                     <Button onClick={handleDeleteAllTasks} className="p-2 !bg-zinc-600" variant="destructive">
                         Delete All
                     </Button>
-                    <Button onClick={handleAddTask} className="p-2 text-white hover:">
+                    <Button onClick={handleAddTask} className="p-2 text-white">
                         Add Task
                     </Button>
                 </CardFooter>
             </Card>
-
             <div className="h-[250px] min-h-[450px] 
             rounded-[17px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
                 <section className="h-[250px] min-h-[450px] 
-            rounded-[17px] overflow-y-scroll 
-            md:bg-zinc-400 md:w-[100%] md:h-[45vh]
-            max-h-100 overflow-y-auto
-            [&::-webkit-scrollbar]:w-1
-            [&::-webkit-scrollbar-track]:bg-teal-800
-            [&::-webkit-scrollbar-thumb]:bg-gray-300
-            dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-            dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+                rounded-[17px] overflow-y-scroll 
+                md:bg-zinc-400 md:w-[100%] md:h-[45vh]
+                max-h-100 overflow-y-auto
+                [&::-webkit-scrollbar]:w-1
+                [&::-webkit-scrollbar-track]:bg-teal-800
+                [&::-webkit-scrollbar-thumb]:bg-gray-300
+                dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+                dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                     {loading ? (
                         <div className="flex justify-center align-center w-[100%] h-[100%]">
                             <h4>Carregando tarefas...</h4>
@@ -142,7 +141,7 @@ export default function ToList() {
                                 <TableRow>
                                     <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
                                     <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
-                                    <TableHead className="w-[35%] text-white text-center">Task time</TableHead>
+                                    <TableHead className="w-[35%] text-white text-center">Task time / Time conclued</TableHead>
                                     <TableHead className="w-[15%] text-white">Delete</TableHead>
                                 </TableRow>
                             </TableHeader>
