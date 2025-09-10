@@ -48,12 +48,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
             </TableCell>
             <TableCell className="flex justify-center !w-[100%] gap-2 items-center h-[100%]">
                 <HoverCard>
-                    <HoverCardTrigger className="flex items-center justify-around gap-2 max-w-[100%] w-[40%]">
-                        <div className={`w-[50%] text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
-                        <div className="w-[50%]">
+                    <HoverCardTrigger className="flex items-center justify-around flex-wrap gap-2 max-w-[100%] w-[100%] md:w-[50%]">
+                        <div className={`w-[100%] h-[50%] text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
+                        <div className="flex justify-center w-[100%] h-[20px]">
                             {task.completed && task.timeCompleted && (
                                 <span className="text-teal-400">
-                                    {task.completed ? task.timeCompleted : ' '}
+                                    {task.completed ? task.timeCompleted : " "}
                                 </span>
                             )}
                         </div>
