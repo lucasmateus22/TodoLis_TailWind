@@ -26,15 +26,15 @@ const getChartData = (tasks: Task[]) => {
 
 const chartConfig = {
     tasks: {
-        label: "Tarefas",
+        label: "Tasks",
         color: "#097a5aff",
     },
     completed: {
-        label: "Concluídas",
+        label: "Completed",
         color: "#059669", // teal-600
     },
     pending: {
-        label: "Pendentes",
+        label: "Pending",
         color: "#04573fff", // teal-400
     },
 };

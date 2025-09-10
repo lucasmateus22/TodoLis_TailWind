@@ -27,15 +27,15 @@ export default function ToList() {
 
     const { tasks, loading, addTask, handleDeleteTask, handleToggleTask, handleDeleteAllTasks } = CrudApi()
     const [errorMessage, setErrorMessage] = useState("")
+    const [concluedMessage, setConcluedMessage] = useState("")
     const [taskText, setTaskText] = useState("");
     const [taskTime, setTaskTime] = useState("");
+
 
     const section1Limit = 50;
     const sectionTasks = tasks.slice(0, section1Limit);
 
     const handleAddTask = () => {
-        console.log(typeof Date)
-
         if (!taskText.trim() || !taskTime.trim()) {
             setErrorMessage("Task text and time cannot be empty");
             return;
@@ -44,6 +44,7 @@ export default function ToList() {
         const newTaskDate = new Date();
         const dateString = newTaskDate.toLocaleDateString();
 
+        setConcluedMessage(concluedMessage);
         setErrorMessage("");
         addTask(taskText, taskTime, dateString);
         clearIncomingData();
@@ -51,6 +52,7 @@ export default function ToList() {
 
     const handleCloseAlert = () => {
         setErrorMessage("")
+        setConcluedMessage("")
     }
 
     const clearIncomingData = () => {
@@ -67,7 +69,12 @@ export default function ToList() {
                     description="Task text and time cannot be empty"
                     onClose={handleCloseAlert} />
             }
-            <Card className="w-[25%] max-w-sm min-w-[300px] gap-2 
+            {concluedMessage &&
+                <AlertList title="Conclued"
+                    description="Task Completed, Congrulations!!"
+                    onClose={handleCloseAlert} />
+            }
+            <Card className="w-[25%] max-w-sm min-w-[300px] !min-h-[300px] gap-2 
                             md:h-[38%] md:gap-5 bg-gray-700">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
@@ -114,10 +121,10 @@ export default function ToList() {
             </Card>
 
             <div className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-hidden min-w-[400px]
+            rounded-[17px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
                 <section className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-y-scroll 
+            rounded-[17px] overflow-y-scroll 
             md:bg-zinc-400 md:w-[100%] md:h-[45vh]
             max-h-100 overflow-y-auto
             [&::-webkit-scrollbar]:w-1

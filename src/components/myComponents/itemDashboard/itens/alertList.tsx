@@ -8,11 +8,11 @@ interface AlertListProps {
     onClose?: () => void;
 }
 
-export default function AlertList({ title, description, children, onClose }: AlertListProps) {
+export default function AlertList({ title, description, onClose }: AlertListProps) {
 
     return (
-        <Alert variant="destructive" className="absolute top-5 left-0 right-0 m-auto z-50 w-[25vw] border-1-red-500">
-            <AlertCircleIcon />
+        <Alert className="absolute top-5 left-0 right-0 m-auto z-50 w-[25vw]">
+            
             <AlertTitle>{title}</AlertTitle>
             <AlertDescription>
                 {description}
