@@ -14,7 +14,7 @@ export default function sheetDash() {
             <SheetTrigger className="!bg-emerald-700 text-white px-4 py-2 rounded-md m-2">
                 <Menu/>
             </SheetTrigger>
-            <SheetContent className="w-full max-w-md">
+            <SheetContent className="w-full max-w-md text-white [&>button]:bg-red-600">
                 <SheetHeader>
                     <SheetTitle>About</SheetTitle>
                     <SheetDescription>
