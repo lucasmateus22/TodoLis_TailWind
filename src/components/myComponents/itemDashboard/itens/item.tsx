@@ -24,7 +24,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
     return (
         <TableRow
             className={`p-2 !h-[20px]
-            cursor-pointer 
+            cursor-pointer select-none
             ${task.completed ? '!bg-emerald-900' : 'bg-zinc-400'}`}
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
@@ -40,7 +40,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                     <HoverCardContent className="w-auto max-w-[310px] h-full">
                         {task.completed && task.timeCompleted ?
                             <span>
-                                <p>add {task.text} as {task.time} in {task.timeCompleted}</p>
+                                <p>add {task.date}, completed in {task.timeCompleted}</p>
                             </span>
                             : <p>Task incomplete</p>}
                     </HoverCardContent>
