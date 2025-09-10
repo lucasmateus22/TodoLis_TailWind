@@ -122,7 +122,7 @@ export default function ToList() {
                     </Button>
                 </CardFooter>
             </Card>
-            <div className="h-[250px] min-h-[450px] 
+            <div className="h-[45%] md:h-[250px] min-h-[250px] md:min-h-[450px] 
             rounded-[17px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
                 <section className="h-[250px] min-h-[450px] 

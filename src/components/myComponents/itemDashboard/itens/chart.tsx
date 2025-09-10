@@ -53,27 +53,21 @@ export default function ChartDashboard() {
 
     // 3. Render the chart with the transformed data
     return (
-
-        <>
-            <ChartContainer config={chartConfig} className="flex self-end max-h-[700px] w-[80%] dark">
-                <BarChart accessibilityLayer data={chartData}>
-                    <CartesianGrid vertical={true} />
-                    <XAxis
-                        dataKey="date" // Use the 'date' key from the new data
-                        tickLine={false}
-                        tickMargin={10}
-                        axisLine={false}
-                        tickFormatter={(value) => value.slice(0, 10)}
-                    />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <ChartLegend className="text-white" content={<ChartLegendContent />} />
-                    <Bar dataKey="completed" fill="var(--color-completed)" radius={4} />
-                    <Bar dataKey="pending" fill="var(--color-pending)" radius={4} />
-                </BarChart>
-            </ChartContainer>
-        </>
-
-
-
+        <ChartContainer config={chartConfig} className="flex self-center align-start justify-start max-h-[600px] w-[90%] min-w-[450px] dark">
+            <BarChart accessibilityLayer data={chartData}>
+                <CartesianGrid vertical={true} />
+                <XAxis
+                    dataKey="date" // Use the 'date' key from the new data
+                    tickLine={false}
+                    tickMargin={10}
+                    axisLine={false}
+                    tickFormatter={(value) => value.slice(0, 10)}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <ChartLegend className="text-white" content={<ChartLegendContent />} />
+                <Bar dataKey="completed" fill="var(--color-completed)" radius={4} />
+                <Bar dataKey="pending" fill="var(--color-pending)" radius={4} />
+            </BarChart>
+        </ChartContainer>
     );
 }
