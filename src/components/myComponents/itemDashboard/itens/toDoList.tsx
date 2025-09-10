@@ -62,7 +62,7 @@ export default function ToList() {
 
     return (
 
-        <div className="flex flex-row items-start justify-center flex-wrap gap-2
+        <div className="flex flex-row items-start justify-center flex-wrap gap-1
                         w-full h-full md:gap-5">
             {errorMessage &&
                 <AlertList title="Empty Input"
@@ -107,9 +107,7 @@ export default function ToList() {
                                     onChange={(e) => setTaskTime(e.target.value)}
                                     className="rounded-none rounded-s-lg bg-gray-50 border text-gray-900 leading-none focus:ring-blue-500 focus:border-blue-500 block flex-1 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     min="01:00" max="00:00" required />
-
                             </div>
-
                         </div>
                     </div>
                 </CardContent>
@@ -122,10 +120,10 @@ export default function ToList() {
                     </Button>
                 </CardFooter>
             </Card>
-            <div className="h-[45%] md:h-[250px] min-h-[250px] md:min-h-[450px] 
+            <div className="h-[250px] md:h-[250px] md:min-h-[450px] min-h-[150px] 
             rounded-[17px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
-                <section className="h-[250px] min-h-[450px] 
+                <section className="h-[250px] min-h-[150px] 
                 rounded-[17px] overflow-y-scroll 
                 md:bg-zinc-400 md:w-[100%] md:h-[45vh]
                 max-h-100 overflow-y-auto
