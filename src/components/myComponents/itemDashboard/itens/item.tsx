@@ -52,14 +52,14 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
                         <div className={`w-[50%] text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
                         <div className="w-[50%]">
                             {task.completed && task.timeCompleted && (
-                                <span>
-                                    {task.completed ? task.timeCompleted : <p>Incomplete</p>}
+                                <span className="text-teal-400">
+                                    {task.completed ? task.timeCompleted : ' '}
                                 </span>
                             )}
                         </div>
                     </HoverCardTrigger >
                     <HoverCardContent className="w-auto max-w-[310px] h-full">
-
+                        {task.completed ? 'Completed' : 'Incomplete'}
                     </HoverCardContent>
                 </HoverCard >
 

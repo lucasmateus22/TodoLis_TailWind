@@ -92,9 +92,11 @@ export const CrudApi = () => {
   let updateData: { completed: boolean; timeCompleted?: string } = { 
     completed: newCompletedStatus 
   };
+  let hourCompleted = new Date().toLocaleTimeString();
+  let dayCompleted = new Date().toLocaleDateString();
 
-  if (newCompletedStatus) {
-    updateData.timeCompleted = new Date().toLocaleTimeString();
+  if (newCompletedStatus) {  
+    updateData.timeCompleted = hourCompleted +" "+ dayCompleted
   } else {
     updateData.timeCompleted = undefined; // limpa se desmarcar
   }
