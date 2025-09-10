@@ -16,21 +16,21 @@ import SheetDash from "./itemDashboard/itens/sheetDash"
 export default function Header() {
     return (
         <header className="flex !items-center justify-between
-                w-[100%] h-[9h] 
+                w-[100%] h-[7vh] md:h-[9vh] 
                 shadow-md px-4 py-2 bg-emerald-800">
             <div className="flex items-center justify-between 
                 w-[98%] min-w-[370px]
-                text-white px-4 rounded-md">
+                text-white md:px-4 rounded-md">
                 <div className="flex items-center justify-start 
                     w-[70%] 
-                    text-white px-4 rounded-md">
+                    text-white md:px-4 rounded-md">
                     <SheetDash />
                     <span className="text-xl font-bold">Dashboard</span>
                 </div>
                 <Menubar className="h-10">
                     <MenubarMenu>
-                        <MenubarTrigger className="h-[60px] w-[60px] !bg-emerald-700 text-white text-sm font-medium p-0 !rounded-full">
-                            <User />
+                        <MenubarTrigger className="md:h-[60px] md:w-[60px] h-[55px] w-[60px] !bg-emerald-800 md:!bg-emerald-700 text-white text-sm font-medium p-0 !rounded-full">
+                            <User className="!w-[60px]" />
                         </MenubarTrigger>
                         <MenubarContent>
                             <MenubarItem>
@@ -53,7 +53,6 @@ export default function Header() {
                     </MenubarMenu>
                 </Menubar>
             </div>
-
         </header>
     )
 }

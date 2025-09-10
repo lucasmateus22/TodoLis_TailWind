@@ -42,7 +42,7 @@ const chartConfig = {
 export default function ChartDashboard() {
     // 1. Fetch the data using your custom hook
     const { tasks, loading } = CrudApi();
-    
+
     // 2. Transform the data for the chart
     const chartData = getChartData(tasks);
 
@@ -50,24 +50,30 @@ export default function ChartDashboard() {
     if (loading) {
         return <p>Carregando dados do gráfico...</p>;
     }
-    
+
     // 3. Render the chart with the transformed data
     return (
-        <ChartContainer config={chartConfig} className="flex self-end max-h-[700px] w-[80%] dark">
-            <BarChart accessibilityLayer data={chartData}>
-                <CartesianGrid vertical={false} />
-                <XAxis
-                    dataKey="date" // Use the 'date' key from the new data
-                    tickLine={false}
-                    tickMargin={10}
-                    axisLine={false}
-                    tickFormatter={(value) => value.slice(0, 10)}
-                />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <ChartLegend className="text-white" content={<ChartLegendContent />} />
-                <Bar dataKey="completed" fill="var(--color-completed)" radius={4} />
-                <Bar dataKey="pending" fill="var(--color-pending)" radius={4} />
-            </BarChart>
-        </ChartContainer>
+
+        <>
+            <ChartContainer config={chartConfig} className="flex self-end max-h-[700px] w-[80%] dark">
+                <BarChart accessibilityLayer data={chartData}>
+                    <CartesianGrid vertical={true} />
+                    <XAxis
+                        dataKey="date" // Use the 'date' key from the new data
+                        tickLine={false}
+                        tickMargin={10}
+                        axisLine={false}
+                        tickFormatter={(value) => value.slice(0, 10)}
+                    />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <ChartLegend className="text-white" content={<ChartLegendContent />} />
+                    <Bar dataKey="completed" fill="var(--color-completed)" radius={4} />
+                    <Bar dataKey="pending" fill="var(--color-pending)" radius={4} />
+                </BarChart>
+            </ChartContainer>
+        </>
+
+
+
     );
 }
