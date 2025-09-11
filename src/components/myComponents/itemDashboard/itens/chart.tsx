@@ -26,15 +26,15 @@ const getChartData = (tasks: Task[]) => {
 
 const chartConfig = {
     tasks: {
-        label: "Tarefas",
+        label: "Tasks",
         color: "#097a5aff",
     },
     completed: {
-        label: "Concluídas",
+        label: "Completed",
         color: "#059669", // teal-600
     },
     pending: {
-        label: "Pendentes",
+        label: "Pending",
         color: "#04573fff", // teal-400
     },
 };
@@ -42,7 +42,7 @@ const chartConfig = {
 export default function ChartDashboard() {
     // 1. Fetch the data using your custom hook
     const { tasks, loading } = CrudApi();
-    
+
     // 2. Transform the data for the chart
     const chartData = getChartData(tasks);
 
@@ -50,12 +50,12 @@ export default function ChartDashboard() {
     if (loading) {
         return <p>Carregando dados do gráfico...</p>;
     }
-    
+
     // 3. Render the chart with the transformed data
     return (
-        <ChartContainer config={chartConfig} className="flex self-end max-h-[700px] w-[80%] dark">
+        <ChartContainer config={chartConfig} className="flex self-center align-start justify-start max-h-[600px] w-[90%] min-w-[450px] dark">
             <BarChart accessibilityLayer data={chartData}>
-                <CartesianGrid vertical={false} />
+                <CartesianGrid vertical={true} />
                 <XAxis
                     dataKey="date" // Use the 'date' key from the new data
                     tickLine={false}

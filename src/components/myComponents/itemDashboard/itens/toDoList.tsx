@@ -27,15 +27,15 @@ export default function ToList() {
 
     const { tasks, loading, addTask, handleDeleteTask, handleToggleTask, handleDeleteAllTasks } = CrudApi()
     const [errorMessage, setErrorMessage] = useState("")
+    const [concluedMessage, setConcluedMessage] = useState("")
     const [taskText, setTaskText] = useState("");
     const [taskTime, setTaskTime] = useState("");
+
 
     const section1Limit = 50;
     const sectionTasks = tasks.slice(0, section1Limit);
 
     const handleAddTask = () => {
-        console.log(typeof Date)
-
         if (!taskText.trim() || !taskTime.trim()) {
             setErrorMessage("Task text and time cannot be empty");
             return;
@@ -44,6 +44,7 @@ export default function ToList() {
         const newTaskDate = new Date();
         const dateString = newTaskDate.toLocaleDateString();
 
+        setConcluedMessage(concluedMessage);
         setErrorMessage("");
         addTask(taskText, taskTime, dateString);
         clearIncomingData();
@@ -51,6 +52,7 @@ export default function ToList() {
 
     const handleCloseAlert = () => {
         setErrorMessage("")
+        setConcluedMessage("")
     }
 
     const clearIncomingData = () => {
@@ -60,14 +62,19 @@ export default function ToList() {
 
     return (
 
-        <div className="flex flex-row items-start justify-center flex-wrap gap-2
+        <div className="flex flex-row items-start justify-center flex-wrap gap-1
                         w-full h-full md:gap-5">
             {errorMessage &&
                 <AlertList title="Empty Input"
                     description="Task text and time cannot be empty"
                     onClose={handleCloseAlert} />
             }
-            <Card className="w-[25%] max-w-sm min-w-[300px] gap-2 
+            {concluedMessage &&
+                <AlertList title="Conclued"
+                    description="Task Completed, Congrulations!!"
+                    onClose={handleCloseAlert} />
+            }
+            <Card className="w-[25%] max-w-sm min-w-[300px] !min-h-[310px] gap-2 
                             md:h-[38%] md:gap-5 bg-gray-700">
                 <CardHeader>
                     <CardTitle>To do list</CardTitle>
@@ -90,16 +97,17 @@ export default function ToList() {
                                 maxLength={10}
                                 autoComplete="off"
                             />
-                            <Input
-                                id="task-time"
-                                type="time"
-                                placeholder="Time"
-                                required
-                                value={taskTime}
-                                onChange={(e) => setTaskTime(e.target.value)}
-                                maxLength={4}
-                                autoComplete="off"
-                            />
+                            <div className="flex flex-col mt-2">
+                                <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="task-time">Select time:</Label>
+                                <Input
+                                    type="time"
+                                    id="task-time"
+                                    value={taskTime}
+                                    maxLength={4}
+                                    onChange={(e) => setTaskTime(e.target.value)}
+                                    className="rounded-none rounded-s-lg bg-gray-50 border text-gray-900 leading-none focus:ring-blue-500 focus:border-blue-500 block flex-1 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    min="01:00" max="00:00" required />
+                            </div>
                         </div>
                     </div>
                 </CardContent>
@@ -107,24 +115,23 @@ export default function ToList() {
                     <Button onClick={handleDeleteAllTasks} className="p-2 !bg-zinc-600" variant="destructive">
                         Delete All
                     </Button>
-                    <Button onClick={handleAddTask} className="p-2 text-white hover:">
+                    <Button onClick={handleAddTask} className="p-2 text-white">
                         Add Task
                     </Button>
                 </CardFooter>
             </Card>
-
-            <div className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-hidden min-w-[400px]
+            <div className="h-[250px] md:h-[250px] md:min-h-[450px] min-h-[150px] 
+            rounded-[17px] overflow-hidden min-w-[400px]
             md:bg-zinc-400 md:w-[70%] md:h-[45vh]">
-                <section className="h-[250px] min-h-[450px] 
-            rounded-[27px] overflow-y-scroll 
-            md:bg-zinc-400 md:w-[100%] md:h-[45vh]
-            max-h-100 overflow-y-auto
-            [&::-webkit-scrollbar]:w-1
-            [&::-webkit-scrollbar-track]:bg-teal-800
-            [&::-webkit-scrollbar-thumb]:bg-gray-300
-            dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-            dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+                <section className="h-[250px] min-h-[150px] md:min-h-[450px]
+                rounded-[17px] overflow-y-scroll 
+                md:bg-zinc-400 md:w-[100%] md:h-[45vh]
+                max-h-100 overflow-y-auto
+                [&::-webkit-scrollbar]:w-1
+                [&::-webkit-scrollbar-track]:bg-teal-800
+                [&::-webkit-scrollbar-thumb]:bg-gray-300
+                dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+                dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
                     {loading ? (
                         <div className="flex justify-center align-center w-[100%] h-[100%]">
                             <h4>Carregando tarefas...</h4>
@@ -135,7 +142,7 @@ export default function ToList() {
                                 <TableRow>
                                     <TableHead className="w-[15%] text-white text-center">Completed</TableHead>
                                     <TableHead className="w-[35%] text-white text-center">Task name</TableHead>
-                                    <TableHead className="w-[35%] text-white text-center">Task time</TableHead>
+                                    <TableHead className="w-[35%] text-white text-center">Task time / Time conclued</TableHead>
                                     <TableHead className="w-[15%] text-white">Delete</TableHead>
                                 </TableRow>
                             </TableHeader>
