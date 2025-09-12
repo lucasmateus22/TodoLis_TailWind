@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button"
 import { useState } from 'react';
 import TaskItem from "./item";
 import { CrudApi } from "@/features/hooks/crudApi"
-import AlertList from "./alertList"
+import AlertList from "../../alertList"
 
 export default function ToList() {
 
@@ -65,7 +65,8 @@ export default function ToList() {
         <div className="flex flex-row items-start justify-center flex-wrap gap-1
                         w-full h-full md:gap-5">
             {errorMessage &&
-                <AlertList title="Empty Input"
+                <AlertList 
+                    title="Empty Input"
                     description="Task text and time cannot be empty"
                     onClose={handleCloseAlert} />
             }
