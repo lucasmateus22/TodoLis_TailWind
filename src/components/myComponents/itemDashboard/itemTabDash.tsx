@@ -12,7 +12,7 @@ export default function ItemTabDash() {
             <TabsContent value="todolist" className="w-[100%] !h-[100%]">
                 <ToList />
             </TabsContent>
-            <TabsContent value="Chart" className="flex flex-wrap justify-start flex-col align-end h-[800px] bg-gray-900">
+            <TabsContent value="Chart" className="flex flex-wrap justify-start flex-col align-end h-[800px]">
                 <section className="text-white h-[80%] w-[95%]">
                     <div className="px-4">
                         <h2 className="font-bold mb-8">Chart</h2>
