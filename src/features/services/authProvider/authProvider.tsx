@@ -8,6 +8,7 @@ import {
 import { auth } from '@/features/services/authProvider/firebase';
 
 interface AuthContextType {
+  isAuthenticated: boolean;
   user: User | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
@@ -52,8 +53,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await signOut(auth);
     setLoading(false);
   };
+  
+  // 1. Determine se o usuário está autenticado
+  const isAuthenticated = !!user;
 
-  const value = { user, loading, login, logout };
+  // 2. Adicione 'isAuthenticated' ao objeto 'value'
+  const value = { isAuthenticated, user, loading, login, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -11,8 +11,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as layoutLayoutRouteImport } from './routes/(layout)/_layout'
+import { Route as layoutLayoutLoginRouteImport } from './routes/(layout)/_layout.login'
 import { Route as layoutLayoutDashboardRouteImport } from './routes/(layout)/_layout.dashboard'
 
 const layoutRouteImport = createFileRoute('/(layout)')()
@@ -21,14 +21,14 @@ const layoutRoute = layoutRouteImport.update({
   id: '/(layout)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const layoutLayoutRoute = layoutLayoutRouteImport.update({
   id: '/_layout',
   getParentRoute: () => layoutRoute,
+} as any)
+const layoutLayoutLoginRoute = layoutLayoutLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => layoutLayoutRoute,
 } as any)
 const layoutLayoutDashboardRoute = layoutLayoutDashboardRouteImport.update({
   id: '/dashboard',
@@ -39,33 +39,34 @@ const layoutLayoutDashboardRoute = layoutLayoutDashboardRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof layoutLayoutRouteWithChildren
   '/dashboard': typeof layoutLayoutDashboardRoute
+  '/login': typeof layoutLayoutLoginRoute
 }
 export interface FileRoutesByTo {
   '/': typeof layoutLayoutRouteWithChildren
   '/dashboard': typeof layoutLayoutDashboardRoute
+  '/login': typeof layoutLayoutLoginRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/(layout)': typeof layoutRouteWithChildren
   '/(layout)/_layout': typeof layoutLayoutRouteWithChildren
   '/(layout)/_layout/dashboard': typeof layoutLayoutDashboardRoute
+  '/(layout)/_layout/login': typeof layoutLayoutLoginRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard'
+  fullPaths: '/' | '/dashboard' | '/login'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard'
+  to: '/' | '/dashboard' | '/login'
   id:
     | '__root__'
-    | '/'
     | '/(layout)'
     | '/(layout)/_layout'
     | '/(layout)/_layout/dashboard'
+    | '/(layout)/_layout/login'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   layoutRoute: typeof layoutRouteWithChildren
 }
 
@@ -78,19 +79,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof layoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/(layout)/_layout': {
       id: '/(layout)/_layout'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof layoutLayoutRouteImport
       parentRoute: typeof layoutRoute
+    }
+    '/(layout)/_layout/login': {
+      id: '/(layout)/_layout/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof layoutLayoutLoginRouteImport
+      parentRoute: typeof layoutLayoutRoute
     }
     '/(layout)/_layout/dashboard': {
       id: '/(layout)/_layout/dashboard'
@@ -104,10 +105,12 @@ declare module '@tanstack/react-router' {
 
 interface layoutLayoutRouteChildren {
   layoutLayoutDashboardRoute: typeof layoutLayoutDashboardRoute
+  layoutLayoutLoginRoute: typeof layoutLayoutLoginRoute
 }
 
 const layoutLayoutRouteChildren: layoutLayoutRouteChildren = {
   layoutLayoutDashboardRoute: layoutLayoutDashboardRoute,
+  layoutLayoutLoginRoute: layoutLayoutLoginRoute,
 }
 
 const layoutLayoutRouteWithChildren = layoutLayoutRoute._addFileChildren(
@@ -126,7 +129,6 @@ const layoutRouteWithChildren =
   layoutRoute._addFileChildren(layoutRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   layoutRoute: layoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport

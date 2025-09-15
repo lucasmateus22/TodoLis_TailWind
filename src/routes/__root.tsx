@@ -1,13 +1,17 @@
-// src/routes/__root.tsx
-import { AuthProvider } from '@/features/services/authProvider/authProvider';
-import { createRootRoute, Outlet } from '@tanstack/react-router';
+import { AuthProvider, useAuth } from '@/features/services/authProvider/authProvider';
+import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 
-export const Route = createRootRoute({
+// 1. Defina o tipo do contexto para que o TypeScript saiba o que esperar
+interface MyRouterContext {
+  auth: ReturnType<typeof useAuth>;
+}
+
+export const Route = createRootRouteWithContext<MyRouterContext>()({
+  // 2. A função do componente agora recebe o `auth` diretamente
   component: () => (
-    <>
-      <AuthProvider>
-        <Outlet />
-      </AuthProvider>
-    </>
+    // O AuthProvider envolve a aplicação inteira
+    <AuthProvider>
+      <Outlet />
+    </AuthProvider>
   ),
 });

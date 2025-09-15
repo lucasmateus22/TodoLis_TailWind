@@ -11,9 +11,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import SheetDash from "./itemDashboard/itens/sheetDash"
 import { useState } from "react"
 import AlertList from "./alertList"
+import { useAuth } from "@/features/services/authProvider/authProvider"
 
 export default function Header() {
-    // Inicialize o estado com uma string vazia para aceitar '""'
     const [copiedLink, setCopiedLink] = useState<string | undefined>(undefined);
 
     const handleShare = () => {
@@ -30,12 +30,13 @@ export default function Header() {
             });
     };
 
+    // Corrigido: Desestruturando 'isAuthenticated' junto com 'logout'
+    const { logout, isAuthenticated } = useAuth();
 
     return (
         <header className="flex !items-center justify-between
                 w-[100%] h-[7vh] min-h-[55px] md:h-[9vh]
                 shadow-md px-4 py-2 bg-emerald-800">
-            {/* O alerta será exibido se copiedLink não for nulo/undefined */}
             {copiedLink && (
                 <AlertList
                     title="Copied"
@@ -49,7 +50,9 @@ export default function Header() {
                     w-[70%]
                     text-white md:px-4 rounded-md">
                     <SheetDash />
-                    <span className="text-xl font-bold">Dashboard</span>
+                    {isAuthenticated && (
+                        <span className="text-xl font-bold">Dashboard</span>
+                    )}
                 </div>
                 <Menubar className="h-10">
                     <MenubarMenu>
@@ -68,7 +71,13 @@ export default function Header() {
                             <MenubarSeparator />
                             <MenubarItem className="flex justify-between" onClick={handleShare}>Copy link <Share2 /></MenubarItem>
                             <MenubarSeparator />
-                            <MenubarItem className="flex justify-between"><a href="/">Log-out</a> <LogOut /></MenubarItem>
+                            {/* A lógica de renderização condicional está correta, agora 'isAuthenticated' está definida */}
+                            {isAuthenticated && (
+                                <MenubarItem onClick={logout} className="flex justify-between text-red-500">
+                                    Sair
+                                    <LogOut className="ml-2 h-4 w-4" />
+                                </MenubarItem>
+                            )}
                         </MenubarContent>
                     </MenubarMenu>
                 </Menubar>
