@@ -118,7 +118,7 @@ export default function ToList() {
                 className="
                 w-full md:w-[70%] md:h-[90%]
                 h-[250px] min-h-[150px] min-w-[300px]
-                bg-red-400 md:bg-zinc-400
+                md:bg-zinc-400
                 rounded-[18px]
                 overflow-hidden
                 "
