@@ -6,7 +6,7 @@
       "time": "14:00",
       "date": "01/09/2025",
       "completed": true,
-      "timeCompleted": "11:47:28 16/09/2025"
+      "timeCompleted": "14:23:31 16/09/2025"
     },
     {
       "id": "1756784012346",
@@ -29,7 +29,7 @@
       "text": "Fazer backup de arquivos",
       "time": "08:00",
       "date": "02/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "10:12:52 16/09/2025"
     },
     {
@@ -45,7 +45,7 @@
       "text": "Reunião de follow-up",
       "time": "15:00",
       "date": "02/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "10:13:20 16/09/2025"
     },
     {
@@ -61,7 +61,7 @@
       "text": "Ligação com o cliente",
       "time": "13:00",
       "date": "02/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "13:34:42 16/09/2025"
     },
     {
@@ -85,7 +85,7 @@
       "text": "Agendar reunião com equipe",
       "time": "14:00",
       "date": "02/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "11:47:32 16/09/2025"
     },
     {
@@ -117,7 +117,7 @@
       "text": "Gravar vídeo para o canal",
       "time": "15:00",
       "date": "04/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "16:15:00 04/09/2025"
     },
     {
@@ -141,7 +141,7 @@
       "text": "Organizar a área de trabalho",
       "time": "09:30",
       "date": "05/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "10:00:00 05/09/2025"
     },
     {
@@ -149,7 +149,7 @@
       "text": "Comprar mantimentos",
       "time": "17:00",
       "date": "06/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "11:47:35 16/09/2025"
     },
     {
@@ -174,7 +174,7 @@
       "time": "08:00",
       "date": "07/09/2025",
       "completed": true,
-      "timeCompleted": "09:00:00 07/09/2025"
+      "timeCompleted": "14:08:10 16/09/2025"
     },
     {
       "id": "1757456789012",

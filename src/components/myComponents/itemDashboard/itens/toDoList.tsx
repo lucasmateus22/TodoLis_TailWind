@@ -116,8 +116,8 @@ export default function ToList() {
             </Card>
             <div
                 className="
-                w-full md:w-[70%]
-                min-h-[150px] min-w-[300px]
+                w-full md:w-[70%] md:h-[90%]
+                h-[250px] min-h-[150px] min-w-[300px]
                 bg-red-400 md:bg-zinc-400
                 rounded-[18px]
                 overflow-hidden
@@ -126,8 +126,9 @@ export default function ToList() {
                 <section
                     className="
                     w-full
-                    max-h-[500px] md:max-h-[700px]  /* altura máxima visível */
-                    overflow-y-auto                /* scroll funciona aqui */
+                    
+                    md:h-[100%]                    
+                    overflow-y-auto
                     rounded-[17px]
                     [&::-webkit-scrollbar]:w-1
                     [&::-webkit-scrollbar-track]:bg-blue-700

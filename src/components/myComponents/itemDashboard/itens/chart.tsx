@@ -60,7 +60,9 @@ export default function ChartDashboard() {
                     <Skeleton className="w-[100%] h-[100%]" />
                 </div>
             ) : (
-                <ChartContainer config={chartConfig} className="flex self-center align-start justify-start max-h-[600px] w-[85%] min-w-[330px] pl-2">
+                <ChartContainer config={chartConfig} 
+                className="flex self-center align-start justify-start max-h-[500px] w-[85%] min-w-[330px]
+                pl-2">
                     <BarChart accessibilityLayer data={chartData}>
                         <CartesianGrid vertical={true} />
                         <XAxis

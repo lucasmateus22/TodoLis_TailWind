@@ -33,7 +33,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
         >
             {/* Coluna Nome da Task */}
             <TableCell
-                className="flex justify-center items-center w-[70%] md:w-[100%] gap-2 h-[50px] p-0"
+                className="flex justify-center items-center w-[100%] md:w-[100%] gap-2 h-[50px] p-0 text-wrap"
             >
                 <HoverCard>
                     <HoverCardTrigger className="flex items-center justify-center gap-2 w-full">
@@ -83,9 +83,10 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
             {/* Coluna Delete */}
             <TableCell
                 onClick={() => handleDeleteTask(task.id)}
-                className="flex justify-center align-center items-center w-[30%] md:w-[100%] h-[35px]"
+                className="flex flex-col justify-center items-center w-[100%] md:w-[100%] h-[35px]"
             >
-                <div className="flex justify-center items-center rounded-full bg-red-800 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
+                <div className="flex justify-center items-center rounded-full bg-red-800 w-[50px] h-[50px] p-1 
+                    hover:bg-red-600 transition-colors duration-200">
                     <Trash2 className="w-4 text-white" />
                 </div>
             </TableCell>
