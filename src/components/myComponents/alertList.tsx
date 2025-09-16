@@ -10,8 +10,7 @@ interface AlertListProps {
 export default function AlertList({ title, description }: AlertListProps) {
 
     return (
-        <Alert className="absolute top-5 left-0 right-0 m-auto z-50 w-[25vw]">
-            
+        <Alert className="absolute top-5 left-0 right-0 m-auto z-50 w-[25vw] min-w-[350px]">
             <AlertTitle>{title}</AlertTitle>
             <AlertDescription>
                 {description}

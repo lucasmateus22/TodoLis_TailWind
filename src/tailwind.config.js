@@ -76,3 +76,13 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
+module.exports = {
+  theme: {
+    extend: {
+      height: {
+        'fill-available': '-webkit-fill-available',
+      }
+    }
+  }
+}

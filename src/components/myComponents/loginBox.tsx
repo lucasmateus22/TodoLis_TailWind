@@ -27,9 +27,7 @@ export default function LoginBox() {
       const user = result.user;
       await login(user);
 
-      console.log("Login com Google bem-sucedido", user);
     } catch (err: any) {
-      console.error("Erro no login com Google:", err);
       setError("Erro ao fazer login com Google");
     } finally {
       setLoadingBtn(false);

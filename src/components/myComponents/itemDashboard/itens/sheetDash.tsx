@@ -16,13 +16,13 @@ export default function sheetDash() {
 
     return (
         <Sheet>
-            <SheetTrigger className="!bg-emerald-700 hover:!bg-emerald-600 transition-colors duration-200 text-white p-2 rounded-md m-2">
+            <SheetTrigger className="!bg-blue-900 hover:!bg-blue-700 transition-colors duration-200 text-white p-2 rounded-md m-2">
                 <Menu />
             </SheetTrigger>
             <SheetContent className="w-full max-w-sm sm:max-w-md bg-gray-100 p-6 flex flex-col justify-between">
                 <div>
                     <SheetHeader>
-                        <SheetTitle className="text-3xl font-bold mb-4 text-emerald-800">
+                        <SheetTitle className="text-3xl font-bold mb-4 text-blue-800">
                             About
                         </SheetTitle>
                         <SheetDescription className="text-gray-700">

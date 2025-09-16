@@ -30,13 +30,12 @@ export default function Header() {
             });
     };
 
-    // Corrigido: Desestruturando 'isAuthenticated' junto com 'logout'
     const { logout, isAuthenticated } = useAuth();
 
     return (
         <header className="flex !items-center justify-between
                 w-[100%] h-[7vh] min-h-[55px] md:h-[9vh]
-                shadow-md px-4 py-2 bg-emerald-800">
+                shadow-md px-4 py-2 bg-blue-800">
             {copiedLink && (
                 <AlertList
                     title="Copied"
@@ -44,7 +43,7 @@ export default function Header() {
                 </AlertList>
             )}
             <div className="flex items-center justify-between
-                w-[98%] min-w-[370px]
+                w-[98%] min-w-[340px]
                 text-white md:px-4 rounded-md">
                 <div className="flex items-center justify-start
                     w-[70%]
@@ -56,7 +55,7 @@ export default function Header() {
                 </div>
                 <Menubar className="h-10">
                     <MenubarMenu>
-                        <MenubarTrigger className="md:h-[60px] md:w-[60px] h-[55px] w-[60px] !bg-emerald-800 md:!bg-emerald-700 text-white text-sm font-medium p-0 !rounded-full">
+                        <MenubarTrigger className="md:h-[60px] md:w-[60px] h-[55px] w-[60px] !bg-blue-800 md:!bg-blue-700 text-white text-sm font-medium p-0 !rounded-full">
                             <Cog className="!w-[60px]" />
                         </MenubarTrigger>
                         <MenubarContent>

@@ -28,15 +28,15 @@ const getChartData = (tasks: Task[]) => {
 const chartConfig = {
     tasks: {
         label: "Tasks",
-        color: "#097a5aff",
+        color: "#003375ff",
     },
     completed: {
         label: "Completed",
-        color: "#059669", // teal-600
+        color: "#71baebff", // teal-600
     },
     pending: {
         label: "Pending",
-        color: "#04573fff", // teal-400
+        color: "#0044ffff", // teal-400
     },
 };
 
@@ -57,10 +57,10 @@ export default function ChartDashboard() {
         <>
             {loading ? (
                 <div className="flex justify-center align-center w-[100%] h-[100%]">
-                    <Skeleton className=" w-[100%] h-[100%]" />
+                    <Skeleton className="w-[100%] h-[100%]" />
                 </div>
             ) : (
-                <ChartContainer config={chartConfig} className="flex self-center align-start justify-start max-h-[600px] w-[90%] min-w-[450px] dark">
+                <ChartContainer config={chartConfig} className="flex self-center align-start justify-start max-h-[600px] w-[85%] min-w-[330px] pl-2">
                     <BarChart accessibilityLayer data={chartData}>
                         <CartesianGrid vertical={true} />
                         <XAxis
@@ -71,7 +71,7 @@ export default function ChartDashboard() {
                             tickFormatter={(value) => value.slice(0, 10)}
                         />
                         <ChartTooltip content={<ChartTooltipContent />} />
-                        <ChartLegend className="text-white" content={<ChartLegendContent />} />
+                        <ChartLegend className="" content={<ChartLegendContent />} />
                         <Bar dataKey="completed" fill="var(--color-completed)" radius={4} />
                         <Bar dataKey="pending" fill="var(--color-pending)" radius={4} />
                     </BarChart>
