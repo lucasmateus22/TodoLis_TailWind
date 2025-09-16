@@ -7,7 +7,7 @@ import {
     TableRow,
     TableCell,
 } from "@/components/ui/table"
-import { Circle, CircleCheckBig, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import React from 'react';
 import type { Task } from "@/types";
 
@@ -23,53 +23,75 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, handleToggleTask, handleDelet
 
     return (
         <TableRow
-            className={`p-2 !h-[20px]
-            cursor-pointer select-none
-            ${task.completed ? '!bg-emerald-900' : 'bg-zinc-400'}`}
             key={task.id}
             onClick={() => handleToggleTask(task.id)}
+            className={`
+            cursor-pointer select-none p-2
+            !h-[40px] md:!h-[50px]
+            ${task.completed ? '!bg-blue-900' : 'bg-gray-200'}
+        `}
         >
-            <TableCell className={`w-[15%] pl-5 ${task.completed ? 'text-white' : 'text-stone-600'} !h-[35px]`}>
-                {task.completed ? <CircleCheckBig /> : <Circle />}
-            </TableCell>
-            <TableCell className="w-[35%] max-w-[35%] gap-2 items-center h-[35px] ">
+            {/* Coluna Nome da Task */}
+            <TableCell
+                className="flex justify-center items-center w-[100%] md:w-[100%] gap-2 h-[50px] p-0 text-wrap"
+            >
                 <HoverCard>
-                    <HoverCardTrigger className="flex items-center justify-center gap-2 max-w-[100%]">
-                        <div className={`text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-cente`}>{task.text}</div>
-                    </HoverCardTrigger >
-                    <HoverCardContent className="w-auto max-w-[310px] h-full">
-                        {task.completed && task.timeCompleted ?
-                            <span>
-                                <p>add {task.date}, completed in {task.timeCompleted}</p>
-                            </span>
-                            : <p>Task incomplete</p>}
-                    </HoverCardContent>
-                </HoverCard >
-            </TableCell>
-            <TableCell className="flex justify-center !w-[100%] gap-2 items-center h-[100%]">
-                <HoverCard>
-                    <HoverCardTrigger className="flex items-center justify-around flex-wrap gap-2 max-w-[100%] w-[100%] md:w-[50%]">
-                        <div className={`w-[100%] h-[50%] text-[1.2rem] ${task.completed ? 'text-white' : 'text-stone-600'} text-center`}>{task.time}</div>
-                        <div className="flex justify-center w-[100%] h-[20px]">
-                            {task.completed && task.timeCompleted && (
-                                <span className="text-teal-400">
-                                    {task.completed ? task.timeCompleted : " "}
-                                </span>
-                            )}
+                    <HoverCardTrigger className="flex items-center justify-center gap-2 w-full">
+                        <div
+                            className={`text-center text-[1rem] md:text-[1.1rem] ${task.completed ? 'text-white' : 'text-stone-600'
+                                }`}
+                        >
+                            {task.text}
                         </div>
-                    </HoverCardTrigger >
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-auto max-w-[310px] h-full">
+                        {task.completed && task.timeCompleted ? (
+                            <p>
+                                add {task.date}, completed in {task.timeCompleted}
+                            </p>
+                        ) : (
+                            <p>Task incomplete</p>
+                        )}
+                    </HoverCardContent>
+                </HoverCard>
+            </TableCell>
+
+            {/* Coluna Info (visível só no desktop) */}
+            <TableCell
+                className="hidden md:table-cell w-[35%] text-center"
+            >
+                <HoverCard>
+                    <HoverCardTrigger className="flex flex-col items-center justify-center gap-1 w-full">
+                        <div
+                            className={`text-[0.9rem] ${task.completed ? 'text-white' : 'text-stone-600'
+                                }`}
+                        >
+                            {task.time}
+                        </div>
+                        {task.completed && task.timeCompleted && (
+                            <span className="text-gray-400 text-[0.8rem]">
+                                {task.timeCompleted}
+                            </span>
+                        )}
+                    </HoverCardTrigger>
                     <HoverCardContent className="w-auto max-w-[310px] h-full">
                         {task.completed ? 'Completed' : 'Incomplete'}
                     </HoverCardContent>
-                </HoverCard >
-
+                </HoverCard>
             </TableCell>
-            <TableCell onClick={() => handleDeleteTask(task.id)} className='w-[15%] !h-[35px]'>
-                <div className="flex justify-center align-center rounded-full bg-red-800 w-[35px] h-[35px] p-1 hover:bg-red-600 transition-colors duration-200">
-                    <Trash2 className="w-4" />
+
+            {/* Coluna Delete */}
+            <TableCell
+                onClick={() => handleDeleteTask(task.id)}
+                className="flex flex-col justify-center items-center w-[100%] md:w-[100%] h-[35px]"
+            >
+                <div className="flex justify-center items-center rounded-full bg-red-800 w-[50px] h-[50px] p-1 
+                    hover:bg-red-600 transition-colors duration-200">
+                    <Trash2 className="w-4 text-white" />
                 </div>
             </TableCell>
         </TableRow>
+
     );
 };
 

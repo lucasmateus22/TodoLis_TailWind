@@ -6,7 +6,7 @@
       "time": "14:00",
       "date": "01/09/2025",
       "completed": true,
-      "timeCompleted": "16:15:00 01/09/2025"
+      "timeCompleted": "14:23:31 16/09/2025"
     },
     {
       "id": "1756784012346",
@@ -14,15 +14,7 @@
       "time": "09:30",
       "date": "01/09/2025",
       "completed": true,
-      "timeCompleted": "10:45:00 01/09/2025"
-    },
-    {
-      "id": "1756784012347",
-      "text": "Analisar relatório de vendas",
-      "time": "11:00",
-      "date": "01/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "timeCompleted": "11:47:27 16/09/2025"
     },
     {
       "id": "1756784012348",
@@ -30,55 +22,47 @@
       "time": "17:00",
       "date": "01/09/2025",
       "completed": true,
-      "timeCompleted": "17:55:00 01/09/2025"
+      "timeCompleted": "09:00:24 16/09/2025"
     },
     {
       "id": "1756824278326",
       "text": "Fazer backup de arquivos",
       "time": "08:00",
       "date": "02/09/2025",
-      "completed": true,
-      "timeCompleted": "08:30:00 02/09/2025"
+      "completed": false,
+      "timeCompleted": "10:12:52 16/09/2025"
     },
     {
       "id": "1756824278327",
       "text": "Planejar conteúdo para redes sociais",
       "time": "10:30",
       "date": "02/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "completed": true,
+      "timeCompleted": "10:06:14 16/09/2025"
     },
     {
       "id": "1756824278328",
       "text": "Reunião de follow-up",
       "time": "15:00",
       "date": "02/09/2025",
-      "completed": true,
-      "timeCompleted": "16:00:00 02/09/2025"
+      "completed": false,
+      "timeCompleted": "10:13:20 16/09/2025"
     },
     {
       "id": "1756824278329",
       "text": "Pesquisar tendências de mercado",
       "time": "11:00",
       "date": "02/09/2025",
-      "completed": false,
-      "timeCompleted": null
-    },
-    {
-      "id": "1756834275556",
-      "text": "Organizar a caixa de entrada",
-      "time": "09:00",
-      "date": "02/09/2025",
       "completed": true,
-      "timeCompleted": "09:20:00 02/09/2025"
+      "timeCompleted": "10:06:15 16/09/2025"
     },
     {
       "id": "1756834277972",
       "text": "Ligação com o cliente",
       "time": "13:00",
       "date": "02/09/2025",
-      "completed": true,
-      "timeCompleted": "13:30:00 02/09/2025"
+      "completed": false,
+      "timeCompleted": "13:34:42 16/09/2025"
     },
     {
       "id": "1756824278326",
@@ -94,15 +78,15 @@
       "time": "11:30",
       "date": "02/09/2025",
       "completed": true,
-      "timeCompleted": "12:45:00 02/09/2025"
+      "timeCompleted": "10:12:51 16/09/2025"
     },
     {
-      "id": "1756834277972",
+      "id": "1756834277973",
       "text": "Agendar reunião com equipe",
       "time": "14:00",
       "date": "02/09/2025",
       "completed": false,
-      "timeCompleted": null
+      "timeCompleted": "11:47:32 16/09/2025"
     },
     {
       "id": "1756834279804",
@@ -125,15 +109,15 @@
       "text": "Analisar dados de mercado",
       "time": "13:00",
       "date": "03/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "completed": true,
+      "timeCompleted": "11:47:33 16/09/2025"
     },
     {
       "id": "1757012345678",
       "text": "Gravar vídeo para o canal",
       "time": "15:00",
       "date": "04/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "16:15:00 04/09/2025"
     },
     {
@@ -141,8 +125,8 @@
       "text": "Ler capítulo do livro",
       "time": "21:00",
       "date": "04/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "completed": true,
+      "timeCompleted": "11:47:33 16/09/2025"
     },
     {
       "id": "1757123456789",
@@ -150,14 +134,14 @@
       "time": "18:00",
       "date": "05/09/2025",
       "completed": true,
-      "timeCompleted": "18:25:00 05/09/2025"
+      "timeCompleted": "11:47:34 16/09/2025"
     },
     {
       "id": "1757123456790",
       "text": "Organizar a área de trabalho",
       "time": "09:30",
       "date": "05/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "10:00:00 05/09/2025"
     },
     {
@@ -165,24 +149,24 @@
       "text": "Comprar mantimentos",
       "time": "17:00",
       "date": "06/09/2025",
-      "completed": true,
-      "timeCompleted": "17:50:00 06/09/2025"
+      "completed": false,
+      "timeCompleted": "11:47:35 16/09/2025"
     },
     {
       "id": "1757234567891",
       "text": "Limpar a caixa de entrada",
       "time": "10:00",
       "date": "06/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "completed": true,
+      "timeCompleted": "10:11:44 16/09/2025"
     },
     {
       "id": "1757345678901",
       "text": "Aprender nova habilidade",
       "time": "19:00",
       "date": "07/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "completed": true,
+      "timeCompleted": "11:47:36 16/09/2025"
     },
     {
       "id": "1757345678902",
@@ -190,7 +174,7 @@
       "time": "08:00",
       "date": "07/09/2025",
       "completed": true,
-      "timeCompleted": "09:00:00 07/09/2025"
+      "timeCompleted": "14:08:10 16/09/2025"
     },
     {
       "id": "1757456789012",
@@ -198,14 +182,14 @@
       "time": "12:00",
       "date": "08/09/2025",
       "completed": true,
-      "timeCompleted": "12:40:00 08/09/2025"
+      "timeCompleted": "11:47:37 16/09/2025"
     },
     {
       "id": "1757456789013",
       "text": "Fazer exercícios",
       "time": "07:00",
       "date": "08/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "07:45:00 08/09/2025"
     },
     {
@@ -214,23 +198,23 @@
       "time": "14:00",
       "date": "09/09/2025",
       "completed": true,
-      "timeCompleted": "15:20:00 09/09/2025"
+      "timeCompleted": "11:47:37 16/09/2025"
     },
     {
       "id": "1757567890124",
       "text": "Ligar para o banco",
       "time": "10:00",
       "date": "09/09/2025",
-      "completed": false,
-      "timeCompleted": null
+      "completed": true,
+      "timeCompleted": "15:36:57 15/09/2025"
     },
     {
       "id": "1757678901234",
       "text": "Ajustar códigos no projeto",
       "time": "09:00",
       "date": "10/09/2025",
-      "completed": true,
-      "timeCompleted": "10:45:00 10/09/2025"
+      "completed": false,
+      "timeCompleted": "11:47:38 16/09/2025"
     },
     {
       "id": "1757678901235",
@@ -238,14 +222,14 @@
       "time": "13:30",
       "date": "10/09/2025",
       "completed": false,
-      "timeCompleted": null
+      "timeCompleted": "15:36:53 15/09/2025"
     },
     {
       "id": "1757789012345",
       "text": "Reunião de equipe",
       "time": "15:00",
       "date": "11/09/2025",
-      "completed": true,
+      "completed": false,
       "timeCompleted": "16:05:00 11/09/2025"
     },
     {
@@ -254,7 +238,7 @@
       "time": "19:00",
       "date": "11/09/2025",
       "completed": false,
-      "timeCompleted": null
+      "timeCompleted": "13:35:37 16/09/2025"
     }
   ]
 }

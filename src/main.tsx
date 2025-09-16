@@ -1,20 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import {routeTree} from './routeTree.gen'
-// main.tsx ou index.tsx
-import './index.css' // ou './globals.css', etc
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "@/routeTree.gen";
+import "./index.css";
+import { AuthProvider, useAuth } from "@/features/services/authProvider/authProvider";
 
-const router = createRouter({ routeTree })
+// Wrapper que injeta o contexto de auth no router
+function AppRouter() {
+  const auth = useAuth();
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
+  const router = React.useMemo(
+    () =>
+      createRouter({
+        routeTree,
+        context: { auth },
+      }),
+    [auth]
+  );
+
+  return <RouterProvider router={router} />;
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-)
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
+  </React.StrictMode>
+);
