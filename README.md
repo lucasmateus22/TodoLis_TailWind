@@ -53,6 +53,9 @@ npm install
 
 # Rode o projeto em ambiente de desenvolvimento
 npm run dev
+
+# Rode o Json server para que a lista de tasks locais esteja ativa
+json-server --watch fakeApiLocal.json --port 3000
 ```
 
 ---
